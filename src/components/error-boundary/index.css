@@ -1,0 +1,41 @@
+#fileNotFound {
+  padding-top: 12rem;
+  font-family: var(--primary-font);
+}
+#fileNotFound .title {
+  color: var(--secondary-red);
+  font-weight: 500;
+  margin-top: 5rem;
+  font-size: 5rem;
+}
+#fileNotFound .title2 {
+  color: var(--secondary-red);
+  margin-top: 4rem;
+  font-size: 2rem;
+}
+#fileNotFound .subtitle {
+  color: var(--primary-blue);
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  vertical-align: middle;
+}
+#fileNotFound .subtitle2 {
+  color: var(--primary-blue);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  vertical-align: middle;
+}
+
+#fileNotFound Button {
+  cursor: pointer;
+  font-size: 20px;
+  text-transform: none;
+}
+@media only screen and (min-width: 960px) {
+  #fileNotFound .subtitle {
+    margin-top: 13rem;
+  }
+}

@@ -1,0 +1,24 @@
+@host = http://localhost:5000/api/
+@authToken = 
+
+# Sign in
+POST {{host}}auth HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "isuru.g.aeturnum@gmail.com",
+    "password": "Asdf123"
+}
+
+###
+
+# Retrieve dashboard details
+POST {{host}}users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Isuru Godakanda",
+    "email": "isuru.g.aeturnum@gmail.com",
+    "role": "manager",
+    "password": "Asdf123"
+}

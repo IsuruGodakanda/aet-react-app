@@ -1,0 +1,17 @@
+@layer base {
+  button {
+    @apply rounded;
+  }
+
+  button.MuiButton-root {
+    @apply bg-primaryBlue;
+  }
+
+  button.MuiButton-root:hover {
+    @apply bg-primaryBlue;
+  }
+
+  button label {
+    @apply font-primaryFont not-italic font-medium text-xl leading-6 tracking-normal capitalize text-white;
+  }
+}

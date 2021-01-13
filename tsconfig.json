@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
+    "allowJs": true,
+    "jsx": "react",
+    "types": ["cypress", "node"],
+    "sourceMap": true,
+    "outDir": "build/dist",
+    "noEmit": true,
+    "isolatedModules": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "baseUrl": "src",
+    "paths": {
+      "Actions/*": ["redux/actions/*"],
+      "Animations/*": ["assets/animations/*"],
+      "Components/*": ["components/*"],
+      "Images/*": ["assets/images/*"],
+      "Lists/*": ["utils/lists/*"],
+      "Pages/*": ["pages/*"],
+      "Redux/*": ["redux/*"],
+      "Services/*": ["services/*"],
+      "Utils/*": ["utils/*"]
+    },
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "strictPropertyInitialization": false,
+    "typeRoots": ["node_modules/@types/*", "src/typings/*"],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": ["node_modules", "build"],
+  "include": ["src/typings", "**/*.ts", "**/*.tsx", "**/*.js"]
+}

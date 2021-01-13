@@ -1,0 +1,12 @@
+{
+  "semi": true,
+  "trailingCommas": {
+    "array": true,
+    "object": true,
+    "function": false
+  },
+  "singleQuote": true,
+  "printWidth": 120,
+  "tabWidth": 2,
+  "endOfLine":"auto"
+}
