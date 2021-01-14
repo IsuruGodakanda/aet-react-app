@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { Dispatch } from 'redux';
-import { SessionKey, getSession, removeSession } from 'Services/securityService';
+import { getSession, removeSession, SessionKey } from 'Services/securityService';
 import { decodeJWT } from 'Utils/commonUtil';
 
 import { AuthDispatchTypes, SET_AUTH_FAIL, SET_AUTH_USER } from '../types/AuthActionTypes';

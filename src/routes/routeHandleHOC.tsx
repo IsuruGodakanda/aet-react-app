@@ -1,8 +1,10 @@
 import { validateJWT } from 'Actions/AuthActions';
+import Template from 'Components/template';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-// import { useSelector } from 'react-redux';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
+
+// import { useSelector } from 'react-redux';
 
 // import { RootStore } from 'Redux/Store';
 
@@ -10,6 +12,21 @@ interface PrivateRouteProps extends RouteProps {
   component: React.ComponentType<any>;
   routeType: 'public' | 'protected';
 }
+
+const SetLayout = (props: any) => {
+  const { component: Component } = props;
+  return (
+    <Route
+      render={(childProps) => (
+        <div>
+          <Template {...childProps}>
+            <Component />
+          </Template>
+        </div>
+      )}
+    />
+  );
+};
 
 const RouteHandleHOC = (props: PrivateRouteProps): JSX.Element => {
   const { component: Component, routeType, ...rest } = props;
@@ -21,7 +38,7 @@ const RouteHandleHOC = (props: PrivateRouteProps): JSX.Element => {
       {...rest}
       render={(routeProps) =>
         dispatch(validateJWT()) ? (
-          <Component {...routeProps} />
+          <SetLayout component={Component} />
         ) : (
           <Redirect
             to={{

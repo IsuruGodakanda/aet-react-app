@@ -1,9 +1,9 @@
 import './index.css';
 
-import { Button, Grid } from '@material-ui/core';
 import React, { Component, ErrorInfo, ReactNode } from 'react';
-
 import { logo } from 'Utils/AssetUtil';
+
+import { Button, Grid } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = (theme) => ({

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { SessionKey, getSession, removeSession } from './securityService';
+import { getSession, removeSession, SessionKey } from './securityService';
 
 const baseAPI = async (method: 'POST' | 'PUT' | 'GET' | 'DELETE', url: string, payload?: any): Promise<any> => {
   let result = null;

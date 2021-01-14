@@ -1,7 +1,8 @@
+import ErrorBoundary from 'Components/error-boundary';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
-import ErrorBoundary from 'Components/error-boundary';
+
 import Store from './redux/Store';
 
 interface PropsForm {

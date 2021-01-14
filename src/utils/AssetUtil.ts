@@ -4,5 +4,9 @@
 
 // ## Common ## //
 export { default as logo } from 'Images/logo.svg';
-export { default as logoWhite } from 'Images/logo-white.svg';
 export { default as spinner } from 'Images/spinner.svg';
+
+// ## Footer ## //
+export { default as logoWhite } from 'Images/logo-white.svg';
+export { default as fb } from 'Images/logo-fb.svg';
+export { default as twitter } from 'Images/logo-twitter.svg';

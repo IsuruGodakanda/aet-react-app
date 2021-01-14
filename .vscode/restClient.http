@@ -17,8 +17,8 @@ POST {{host}}users HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Isuru Godakanda",
-    "email": "isuru.g.aeturnum@gmail.com",
-    "role": "manager",
+    "name": "Dave Hussy",
+    "email": "isurugo93@gmail.com",
+    "role": "worker",
     "password": "Asdf123"
 }
