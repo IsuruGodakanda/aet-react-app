@@ -1,6 +1,6 @@
 import React from 'react';
-import { decodeJWT } from 'Utils/commonUtil';
 import { getSession, SessionKey } from 'Services/securityService';
+import { decodeJWT } from 'Utils/commonUtil';
 
 // Set user roles
 export enum UserRole {

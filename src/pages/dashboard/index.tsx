@@ -1,8 +1,8 @@
 import './index.css';
 
 import React from 'react';
-import { UserRole, PermissionHOC } from 'Services/userRoleService';
 import { Link } from 'react-router-dom';
+import { PermissionHOC, UserRole } from 'Services/userRoleService';
 
 import { Box, Grid } from '@material-ui/core';
 

@@ -55,6 +55,10 @@
     @apply font-primaryFont not-italic font-light text-base tracking-normal text-grey;
   }
 
+  button:focus {
+    @apply outline-none;
+  }
+
   .caption {
     line-height: 22px;
     letter-spacing: 0.32px;
