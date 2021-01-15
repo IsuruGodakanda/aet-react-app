@@ -1,6 +1,7 @@
 import './index.css';
 
 import React from 'react';
+import { UserRole, PermissionHOC } from 'Services/userRoleService';
 import { Link } from 'react-router-dom';
 
 import { Box, Grid } from '@material-ui/core';
@@ -14,7 +15,9 @@ const Dashboard = (): JSX.Element => {
             <Grid item xs={9}>
               <h1>YOUR ARE IN THE DASHBOARD</h1>
             </Grid>
-            <Link to="manager">Manager</Link>
+            <PermissionHOC roles={[UserRole.MANAGER]}>
+              <Link to="manager">Manager Dashboard</Link>
+            </PermissionHOC>
           </Grid>
         </Box>
       </Grid>

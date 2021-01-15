@@ -3,8 +3,7 @@ import Template from 'Components/template';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
-import { decodeJWT } from 'Utils/commonUtil';
-import { getSession, SessionKey } from 'Services/securityService';
+import { validateUserRole } from 'Services/userRoleService';
 
 interface PrivateRouteProps extends RouteProps {
   component: React.ComponentType<any>;
@@ -24,15 +23,6 @@ const SetLayout = (props: any) => {
       )}
     />
   );
-};
-
-const validateUserRole = (path: string | string[] | undefined): boolean => {
-  const token = getSession(SessionKey.AUTH_TOKEN);
-
-  if (decodeJWT(token).role === 'worker') {
-    return path !== '/manager';
-  }
-  return true;
 };
 
 const RouteHandleHOC = (props: PrivateRouteProps): JSX.Element => {
