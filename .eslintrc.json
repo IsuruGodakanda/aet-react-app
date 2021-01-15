@@ -55,6 +55,7 @@
     ],
     "@typescript-eslint/no-unused-vars": "warn",
     "no-console": "warn",
+    "no-nested-ternary": "off",
     "prettier/prettier": "off",
     "react/jsx-curly-newline": "off"
   }

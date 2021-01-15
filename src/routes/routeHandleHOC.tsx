@@ -3,10 +3,8 @@ import Template from 'Components/template';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
-
-// import { useSelector } from 'react-redux';
-
-// import { RootStore } from 'Redux/Store';
+import { decodeJWT } from 'Utils/commonUtil';
+import { getSession, SessionKey } from 'Services/securityService';
 
 interface PrivateRouteProps extends RouteProps {
   component: React.ComponentType<any>;
@@ -28,17 +26,29 @@ const SetLayout = (props: any) => {
   );
 };
 
+const validateUserRole = (path: string | string[] | undefined): boolean => {
+  const token = getSession(SessionKey.AUTH_TOKEN);
+
+  if (decodeJWT(token).role === 'worker') {
+    return path !== '/manager';
+  }
+  return true;
+};
+
 const RouteHandleHOC = (props: PrivateRouteProps): JSX.Element => {
   const { component: Component, routeType, ...rest } = props;
   const dispatch = useDispatch();
-  // const authStore = useSelector((state: RootStore) => state.auth);
 
   return routeType === 'protected' ? (
     <Route
       {...rest}
       render={(routeProps) =>
         dispatch(validateJWT()) ? (
-          <SetLayout component={Component} />
+          validateUserRole(rest.path) ? (
+            <SetLayout component={Component} />
+          ) : (
+            <Redirect to={{ pathname: '/dashboard' }} />
+          )
         ) : (
           <Redirect
             to={{

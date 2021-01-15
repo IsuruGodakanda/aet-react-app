@@ -1,0 +1,19 @@
+@layer base {
+  #managerboardContent {
+    @apply pl-200px pt-16 bg-greyLight;
+  }
+
+  button.MuiButton-root.primary {
+    @apply bg-greyLight text-primaryBlue font-semibold;
+  }
+
+  button.MuiButton-root.primary:hover {
+    @apply bg-greyLight;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #managerboardContent {
+    padding-left: 0px;
+  }
+}

@@ -5,16 +5,16 @@ import { Link } from 'react-router-dom';
 
 import { Box, Grid } from '@material-ui/core';
 
-const Dashboard = (): JSX.Element => {
+const ManagerDashboard = (): JSX.Element => {
   return (
-    <Grid container id="dashboardContent">
+    <Grid container id="managerboardContent">
       <Grid item xs={12}>
         <Box className="mt-3 mb-2 pl-5">
           <Grid container direction="row">
             <Grid item xs={9}>
-              <h1>YOUR ARE IN THE DASHBOARD</h1>
+              <h1>YOUR ARE IN THE MANAGER&apos;S DASHBOARD</h1>
             </Grid>
-            <Link to="manager">Manager</Link>
+            <Link to="dashboard">Dashboard</Link>
           </Grid>
         </Box>
       </Grid>
@@ -22,4 +22,4 @@ const Dashboard = (): JSX.Element => {
   );
 };
 
-export default Dashboard;
+export default ManagerDashboard;
