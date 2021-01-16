@@ -23,3 +23,23 @@ export const decodeData = (token: string): any => {
 export const decodeJWT = (token: string): any => {
   return jwt_decode(token);
 };
+
+export const camelCaseToNormalString = (word: string): string => {
+  const separatedString = word.replace(/[A-Z]/g, (m) => ` ${m.toLowerCase()}`);
+  return separatedString.charAt(0).toUpperCase() + separatedString.slice(1);
+};
+
+export const camelCaseToUnderscoreSeperated = (word: string): string => {
+  return word.replace(/[A-Z]/g, (m) => `_${m.toLowerCase()}`);
+};
+
+export const toQueryString = (queryObject: ITableFilterPayload): string => {
+  let queryString = '';
+  Object.entries(queryObject).forEach(([key, val]) => {
+    if (val || val === 0) {
+      queryString += `${camelCaseToUnderscoreSeperated(key)}=${val}&`;
+    }
+  });
+
+  return queryString && `?${queryString.slice(0, -1)}`;
+};

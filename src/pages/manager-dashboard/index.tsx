@@ -1,6 +1,7 @@
 import './index.css';
 
 import Modal from 'Components/modal';
+import Table from 'Components/table';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -36,11 +37,7 @@ const ManagerDashboard = (): JSX.Element => {
                     modalActionNode={<ModalButton />}
                   >
                     <Grid item xs={12}>
-                      {/* <Table
-                          url={`/${orgId}/kryptoniteactualanswers`}
-                          showEditColumn={false}
-                          showDeleteColumn={false}
-                        /> */}
+                      <Table url="/users" headerTitles={{ name: 'Name', email: 'Email', role: 'Role' }} />
                     </Grid>
                   </Modal>
                 </Grid>

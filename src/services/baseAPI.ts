@@ -6,7 +6,7 @@ const baseAPI = async (method: 'POST' | 'PUT' | 'GET' | 'DELETE', url: string, p
   let result = null;
 
   const headers = getSession(SessionKey.AUTH_TOKEN) && {
-    Authorization: getSession(SessionKey.AUTH_TOKEN),
+    'x-auth-token': getSession(SessionKey.AUTH_TOKEN),
   };
 
   const dataOrParams = ['POST', 'PUT'].includes(method) ? 'data' : 'params';

@@ -1,27 +1,27 @@
 #fileNotFound {
   padding-top: 12rem;
-  font-family: var(--primary-font);
+  font-family: 'Montserrat';
 }
 #fileNotFound .title {
-  color: var(--secondary-red);
+  color: #ca554e;
   font-weight: 500;
   margin-top: 5rem;
   font-size: 5rem;
 }
 #fileNotFound .title2 {
-  color: var(--secondary-red);
+  color: #ca554e;
   margin-top: 4rem;
   font-size: 2rem;
 }
 #fileNotFound .subtitle {
-  color: var(--primary-blue);
+  color: #036686;
   font-size: 1.8rem;
   font-weight: 500;
   margin-bottom: 1rem;
   vertical-align: middle;
 }
 #fileNotFound .subtitle2 {
-  color: var(--primary-blue);
+  color: #036686;
   font-size: 1rem;
   font-weight: 500;
   margin-top: 0.5rem;

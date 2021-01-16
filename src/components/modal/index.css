@@ -9,16 +9,16 @@ button.MuiButton-text {
   padding: 8px 20px;
 }
 button.MuiButton-root.primary {
-  background-color: var(--grey-light);
-  color: var(--primary-blue);
+  background-color: #f3f3f3;
+  color: #036686;
   font-weight: 600;
 }
 button.MuiButton-root.primary:hover {
-  background-color: var(--grey-dark);
+  background-color: #dbdbdb;
 }
 button.MuiButton-root.secondary {
-  background-color: var(--grey-light);
+  background-color: #f3f3f3;
 }
 button.MuiButton-root.secondary:hover {
-  background-color: var(--grey-dark);
+  background-color: #dbdbdb;
 }

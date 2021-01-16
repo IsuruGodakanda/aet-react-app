@@ -1,5 +1,5 @@
 @host = http://localhost:5000/api/
-@authToken = 
+@authToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZmYxMjcwNGEzNjk2NzE1Y2ZiZTEyYyIsIm5hbWUiOiJJc3VydSBHb2Rha2FuZGEiLCJlbWFpbCI6ImlzdXJ1LmcuYWV0dXJudW1AZ21haWwuY29tIiwicm9sZSI6Im1hbmFnZXIiLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyL2YzYTc0YzU5YjYwNmI2ZjllYTY4YzE1NWEwMmNmOGVjP3M9MjAwJnI9cGcmZD1tbSIsImlhdCI6MTYxMDc2NDgxNiwiZXhwIjoxNjExMTI0ODE2fQ.VIVqdRsvbkEg1ver5D9yne4lUGwE_8BeKUHDVrlCWT8
 
 # Sign in
 POST {{host}}auth HTTP/1.1
@@ -17,8 +17,14 @@ POST {{host}}users HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Dave Hussy",
-    "email": "isurugo93@gmail.com",
+    "name": "Virat Koli",
+    "email": "isurugo93+4@gmail.com",
     "role": "worker",
     "password": "Asdf123"
 }
+
+###
+
+# Get sll users
+GET  {{host}}users?offset=0&limit=5 HTTP/1.1
+x-auth-token: {{authToken}}

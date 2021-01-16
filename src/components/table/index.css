@@ -1,0 +1,36 @@
+#tablePaginated .cardContent {
+  padding: 0 0 56px 0;
+}
+#tablePaginated table {
+  background-color: var(--white);
+  border-radius: 8px;
+}
+#tablePaginated .MuiTableCell-head.column {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: black;
+}
+#tablePaginated table .MuiTableCell-root {
+  border-bottom: 1px solid #f3f3f3;
+}
+#tablePaginated table .MuiTableCell-body.MuiTableCell-root {
+  padding: 8px 16px;
+}
+#tablePaginated .MuiTableCell-body.column {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: capitalize;
+  color: #dbdbdb;
+}
+#tablePaginated .MuiTablePagination-root {
+  margin-top: 20px;
+}
+
+#modal #tablePaginated .cardContent {
+  padding: 0 0 10px 0;
+}
