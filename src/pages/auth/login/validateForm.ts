@@ -1,7 +1,7 @@
 import { isEmpty } from 'lodash-es';
 import { isEmail } from 'Utils/commonUtil';
 
-const validateForm = (loginData: any): { isValid: boolean; errors: any } => {
+const validateForm = (loginData: any): IErrorObj => {
   const errors: any = {};
 
   if (!isEmail(loginData.email)) {

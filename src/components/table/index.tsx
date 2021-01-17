@@ -7,12 +7,13 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import { TablePagination } from '@material-ui/core';
+import { TablePagination, Grid } from '@material-ui/core';
 import TableRow from '@material-ui/core/TableRow';
 import { camelCaseToNormalString } from 'Utils/commonUtil';
 import { getTableData } from 'Services/api';
 import { isEmpty } from 'lodash-es';
 import { faEye, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import Search from '../search';
 import './index.css';
 
 const TableComponent = (props: {
@@ -46,6 +47,7 @@ const TableComponent = (props: {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [count, setCount] = React.useState(0);
   const [page, setPage] = React.useState(0);
+  const [search, setSearch] = React.useState('');
   const [columns, setColumns] = React.useState<ITableColumn[]>([]);
   const [tableLoad, setTableLoad] = React.useState(false);
   const [showingTableHeaders, setShowingTableHeaders] = React.useState(headerTitles);
@@ -76,7 +78,7 @@ const TableComponent = (props: {
 
   const loadTableData = () => {
     setTableLoad(true);
-    const filterQuery: ITableFilterPayload = { offset: page, limit: rowsPerPage };
+    const filterQuery: ITableFilterPayload = { offset: page, limit: rowsPerPage, searchTerm: search };
 
     getTableData(url, { ...filterQuery, ...queryParams })
       .then((res) => {
@@ -101,7 +103,7 @@ const TableComponent = (props: {
     if (serverSidePagination && enablePagination) {
       loadTableData();
     }
-  }, [page, rowsPerPage]);
+  }, [page, rowsPerPage, search]);
 
   const fetchRows = React.useMemo(() => {
     if (serverSidePagination && enablePagination) {
@@ -116,7 +118,7 @@ const TableComponent = (props: {
 
     // Current Page slice
     return enablePagination ? computedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : computedData;
-  }, [data, computedData, page, rowsPerPage]);
+  }, [data, computedData, page, rowsPerPage, search]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -139,6 +141,18 @@ const TableComponent = (props: {
 
   return (
     <div id="tablePaginated">
+      <Grid className="p0">
+        <Grid container direction="row" justify="flex-end" alignItems="center">
+          <Grid item>
+            <Search
+              onSearch={(value) => {
+                setSearch(value);
+                setPage(0);
+              }}
+            />
+          </Grid>
+        </Grid>
+      </Grid>
       <TableContainer component={Paper} elevation={0} className="cardContent">
         <Table aria-label="simple table">
           <TableHead>

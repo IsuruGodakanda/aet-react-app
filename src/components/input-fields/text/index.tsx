@@ -21,7 +21,7 @@ interface TextProps {
   label: string;
   placeholder?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  validateField: (id: any) => { isValid: boolean; errors: any };
+  validateField?: ((id: any) => IErrorObj) | undefined;
   required?: boolean;
   disabled?: boolean;
   readOnly?: boolean;
@@ -58,7 +58,9 @@ const TextComponent = (props: TextProps): JSX.Element => {
   }, [errorMsg]);
 
   const checkValidity = () => {
-    setHelperText(validateField({ [id]: value }).errors[id]);
+    if (validateField) {
+      setHelperText(validateField({ [id]: value }).errors[id]);
+    }
   };
 
   return (
@@ -112,6 +114,7 @@ const TextComponent = (props: TextProps): JSX.Element => {
 
 TextComponent.defaultProps = {
   placeholder: '',
+  validateField: undefined,
   required: false,
   disabled: false,
   readOnly: false,

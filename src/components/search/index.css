@@ -1,0 +1,16 @@
+.input-group {
+  border-collapse: separate;
+}
+.form-control {
+  padding: 10px;
+}
+.input-group-btn .btn {
+  border: none;
+  border-bottom: 2px solid #c9ccd3;
+  border-radius: 0;
+  background-color: #e6e6e6;
+  padding: 0px 10px;
+  color: #333;
+  font-size: 14px;
+  box-shadow: none;
+}

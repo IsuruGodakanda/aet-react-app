@@ -12,7 +12,7 @@
   }
 
   .title {
-    @apply bg-greyLight font-primaryFont;
+    @apply font-primaryFont;
   }
 }
 

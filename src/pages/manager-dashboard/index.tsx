@@ -30,6 +30,8 @@ const ManagerDashboard = (): JSX.Element => {
               <Grid container>
                 <Grid item xs={8}>
                   <div className="title mb-1">Employee List</div>
+                </Grid>
+                <Grid item xs={4}>
                   <Modal
                     dialogTitle="Employee List"
                     dialogDescription="Employee list at the office as is below"
