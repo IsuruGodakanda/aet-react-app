@@ -43,7 +43,7 @@ const ManagerDashboard = (): JSX.Element => {
                   <Modal
                     dialogTitle="Add Employee"
                     dialogDescription="Add worker or manager into the office"
-                    maxWidth="md"
+                    maxWidth="xs"
                     modalActionNode={<ModalButton />}
                   >
                     <CreateUpdateEmployeeForm />
