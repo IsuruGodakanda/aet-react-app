@@ -143,7 +143,7 @@ const TableComponent = (props: {
     <div id="tablePaginated">
       <Grid className="p0">
         <Grid container direction="row" justify="flex-end" alignItems="center">
-          <Grid item>
+          <Grid item className="pb-8">
             <Search
               onSearch={(value) => {
                 setSearch(value);

@@ -5,13 +5,20 @@ import Table from 'Components/table';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Grid } from '@material-ui/core';
+import CreateUpdateEmployeeForm from './create-update-employee';
 
 const ManagerDashboard = (): JSX.Element => {
   const ModalButton: React.FC = () => (
-    <FontAwesomeIcon id="viewModal" icon={faEye} size="lg" className="downloadIcon ml-1" title="View more detail" />
+    <FontAwesomeIcon
+      id="viewModal"
+      icon={faUserPlus}
+      size="lg"
+      className="downloadIcon ml-1"
+      title="View more detail"
+    />
   );
 
   return (
@@ -30,18 +37,20 @@ const ManagerDashboard = (): JSX.Element => {
               <Grid container>
                 <Grid item xs={8}>
                   <div className="title mb-1">Employee List</div>
+                  <div className="info">Employee list at the office as is below</div>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={4} className="items-end">
                   <Modal
-                    dialogTitle="Employee List"
-                    dialogDescription="Employee list at the office as is below"
+                    dialogTitle="Add Employee"
+                    dialogDescription="Add worker or manager into the office"
                     maxWidth="md"
                     modalActionNode={<ModalButton />}
                   >
-                    <Grid item xs={12}>
-                      <Table url="/users" headerTitles={{ name: 'Name', email: 'Email', role: 'Role' }} />
-                    </Grid>
+                    <CreateUpdateEmployeeForm />
                   </Modal>
+                </Grid>
+                <Grid item xs={10}>
+                  <Table url="/users" headerTitles={{ name: 'Name', email: 'Email', role: 'Role' }} />
                 </Grid>
               </Grid>
             </Grid>

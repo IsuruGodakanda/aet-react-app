@@ -2,6 +2,9 @@ import './index.css';
 
 import { isEmpty } from 'lodash-es';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootStore } from 'Redux/Store';
+import { setModalStatus } from 'Actions/GlobalActions';
 
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid } from '@material-ui/core';
 
@@ -15,18 +18,18 @@ const Modal = (props: {
   modalActionNode?: React.ReactNode;
 }): JSX.Element => {
   const { onConfirm, dialogTitle, children, maxWidth, dialogDescription, actionDone, modalActionNode } = props;
-
-  const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch();
+  const globalStore = useSelector((state: RootStore) => state.global);
 
   const handleModal = (event: React.MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault();
-    setOpen(!open);
+    dispatch(setModalStatus(!globalStore.isModalOpen));
   };
 
   return (
     <>
       <Dialog
-        open={open}
+        open={globalStore.isModalOpen}
         keepMounted
         fullWidth
         maxWidth={maxWidth}
@@ -48,7 +51,7 @@ const Modal = (props: {
         <DialogContent>
           <DialogContentText id="alert-dialog-description" />
           <Grid id="modal" container direction="column">
-            <Grid>{open && children}</Grid>
+            <Grid>{globalStore.isModalOpen && children}</Grid>
           </Grid>
         </DialogContent>
         <DialogActions>
@@ -69,7 +72,7 @@ const Modal = (props: {
           </Button>
         </DialogActions>
       </Dialog>
-      <Button id="confirm" onClick={handleModal} className="primary">
+      <Button id="modal-button" onClick={handleModal} className="primary">
         {modalActionNode}
       </Button>
     </>

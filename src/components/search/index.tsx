@@ -25,6 +25,7 @@ const Search = (props: IProps): JSX.Element => {
       value={search}
       onChange={(e) => onInputChange(e.target.value)}
       icon={faSearch}
+      className="bg-white"
     />
   );
 };

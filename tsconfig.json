@@ -23,7 +23,6 @@
       "Animations/*": ["assets/animations/*"],
       "Components/*": ["components/*"],
       "Images/*": ["assets/images/*"],
-      "Lists/*": ["utils/lists/*"],
       "Pages/*": ["pages/*"],
       "Redux/*": ["redux/*"],
       "Services/*": ["services/*"],

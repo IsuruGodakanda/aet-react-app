@@ -5,11 +5,12 @@ import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FormControl, makeStyles, TextField } from '@material-ui/core';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import '../index.css';
 
 const useStyles = makeStyles(() => ({
   input: {
     borderColor: '#cccccc !important',
-    height: '55px',
+    width: '320px',
   },
 }));
 
