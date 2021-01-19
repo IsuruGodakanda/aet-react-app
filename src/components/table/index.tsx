@@ -1,6 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootStore } from 'Redux/Store';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Paper from '@material-ui/core/Paper';
@@ -14,7 +12,8 @@ import TableRow from '@material-ui/core/TableRow';
 import { camelCaseToNormalString } from 'Utils/commonUtil';
 import { getTableData } from 'Services/api';
 import { isEmpty } from 'lodash-es';
-import { faEye, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faTimesCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import Modal from 'Components/modal';
 import Search from '../search';
 import './index.css';
 
@@ -30,6 +29,7 @@ const TableComponent = (props: {
   serverSidePagination?: boolean;
   emptyRecordsMessage?: string;
   loadRecordsMessage?: string;
+  createUpdateForm?: React.ReactNode;
 }): JSX.Element => {
   const {
     data,
@@ -43,6 +43,7 @@ const TableComponent = (props: {
     serverSidePagination,
     emptyRecordsMessage,
     loadRecordsMessage,
+    createUpdateForm: CreateUpdateForm,
   } = props;
 
   const [computedData, setComputedData] = React.useState(data);
@@ -54,8 +55,6 @@ const TableComponent = (props: {
   const [tableLoad, setTableLoad] = React.useState(false);
   const [showingTableHeaders, setShowingTableHeaders] = React.useState(headerTitles);
 
-  const globalStore = useSelector((state: RootStore) => state.global);
-
   const setColumnHeaders = (dataSet) => {
     const cols: ITableColumn[] = [];
 
@@ -64,7 +63,7 @@ const TableComponent = (props: {
         if (showingTableHeaders[key]) {
           cols.push({
             key,
-            label: showingTableHeaders[key].replace(/&amp;/g, '+'),
+            label: showingTableHeaders[key],
             showColumn: true,
           });
         }
@@ -104,10 +103,10 @@ const TableComponent = (props: {
   };
 
   React.useEffect(() => {
-    if (serverSidePagination && enablePagination && !globalStore.isModalOpen) {
+    if (serverSidePagination && enablePagination) {
       loadTableData();
     }
-  }, [page, rowsPerPage, search, globalStore.isModalOpen]);
+  }, [page, rowsPerPage, search]);
 
   const fetchRows = React.useMemo(() => {
     if (serverSidePagination && enablePagination) {
@@ -143,17 +142,37 @@ const TableComponent = (props: {
     alert(row);
   };
 
+  const ModalButton: React.FC = () => (
+    <FontAwesomeIcon
+      id="viewModal"
+      icon={faUserPlus}
+      size="lg"
+      className="downloadIcon ml-1"
+      title="View more detail"
+    />
+  );
+
   return (
     <div id="tablePaginated">
       <Grid className="p0">
         <Grid container direction="row" justify="flex-end" alignItems="center">
-          <Grid item className="pb-8">
-            <Search
-              onSearch={(value) => {
-                setSearch(value);
-                setPage(0);
-              }}
-            />
+          <Grid className="pb-8">
+            <Grid item xs={4} className="items-end flex">
+              <Modal
+                dialogTitle="Add Employee"
+                dialogDescription="Add worker or manager into the office"
+                maxWidth="xs"
+                modalActionNode={<ModalButton />}
+              >
+                <CreateUpdateForm loadTable={loadTableData} />
+              </Modal>
+              <Search
+                onSearch={(value) => {
+                  setSearch(value);
+                  setPage(0);
+                }}
+              />
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
@@ -262,6 +281,7 @@ TableComponent.defaultProps = {
   serverSidePagination: true,
   emptyRecordsMessage: 'No data available at this time',
   loadRecordsMessage: 'Table loading...',
+  createUpdateForm: undefined,
 };
 
 export default TableComponent;
