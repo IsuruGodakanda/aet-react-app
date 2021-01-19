@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootStore } from 'Redux/Store';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Paper from '@material-ui/core/Paper';
@@ -52,6 +54,8 @@ const TableComponent = (props: {
   const [tableLoad, setTableLoad] = React.useState(false);
   const [showingTableHeaders, setShowingTableHeaders] = React.useState(headerTitles);
 
+  const globalStore = useSelector((state: RootStore) => state.global);
+
   const setColumnHeaders = (dataSet) => {
     const cols: ITableColumn[] = [];
 
@@ -100,10 +104,10 @@ const TableComponent = (props: {
   };
 
   React.useEffect(() => {
-    if (serverSidePagination && enablePagination) {
+    if (serverSidePagination && enablePagination && !globalStore.isModalOpen) {
       loadTableData();
     }
-  }, [page, rowsPerPage, search]);
+  }, [page, rowsPerPage, search, globalStore.isModalOpen]);
 
   const fetchRows = React.useMemo(() => {
     if (serverSidePagination && enablePagination) {
