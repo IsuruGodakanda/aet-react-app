@@ -8,12 +8,4 @@ export interface SetLoaderStatus {
   payload: boolean;
 }
 
-// Set Modal Status
-export const SET_MODAL_STATUS = 'SET_MODAL_STATUS';
-
-export interface SetModalStatus {
-  type: typeof SET_MODAL_STATUS;
-  payload: boolean;
-}
-
-export type GlobalDispatchTypes = SetLoaderStatus | SetModalStatus;
+export type GlobalDispatchTypes = SetLoaderStatus;

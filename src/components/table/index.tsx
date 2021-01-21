@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Paper from '@material-ui/core/Paper';
@@ -98,7 +99,7 @@ const TableComponent = (props: {
         setTableLoad(false);
       })
       .catch((err) => {
-        console.log(JSON.parse(err.message).message);
+        toast.error('Fail to load table data!');
       });
   };
 
@@ -134,7 +135,7 @@ const TableComponent = (props: {
     }
   };
 
-  const ModalButton: React.FC = () => (
+  const AddButton: React.FC = () => (
     <FontAwesomeIcon
       id="viewModal"
       icon={faUserPlus}
@@ -144,13 +145,9 @@ const TableComponent = (props: {
     />
   );
 
-  const onViewUpdateRow = (row: Record<string, unknown>): void => {
-    alert(row);
-  };
-
-  const onDeleteRow = (row: Record<string, unknown>): void => {
-    alert(row);
-  };
+  const UpdateButton: React.FC = () => (
+    <FontAwesomeIcon id="viewModal" icon={faEye} size="lg" className="downloadIcon ml-1" title="View more detail" />
+  );
 
   return (
     <div id="tablePaginated">
@@ -162,7 +159,7 @@ const TableComponent = (props: {
                 dialogTitle="Add Employee"
                 dialogDescription="Add worker or manager into the office"
                 maxWidth="xs"
-                modalActionNode={<ModalButton />}
+                modalActionNode={<AddButton />}
               >
                 <CreateUpdateForm loadTable={loadTableData} />
               </Modal>
@@ -229,21 +226,13 @@ const TableComponent = (props: {
                     {showEditColumn && showDeleteColumn && (
                       <TableCell align="right">
                         <Modal
-                          dialogTitle="Add Employee"
-                          dialogDescription="Add worker or manager into the office"
+                          dialogTitle="Edit Employee"
+                          dialogDescription="Edit worker or manager into the office"
                           maxWidth="xs"
-                          modalActionNode={<ModalButton />}
+                          modalActionNode={<UpdateButton />}
                         >
-                          <CreateUpdateForm loadTable={loadTableData} />
+                          <CreateUpdateForm selectedId={row._id} loadTable={loadTableData} />
                         </Modal>
-                        {/* <FontAwesomeIcon
-                          icon={faEye}
-                          size="lg"
-                          id="viewIcon"
-                          onClick={() => {
-                            onViewUpdateRow(row);
-                          }}
-                        /> */}
                         <FontAwesomeIcon
                           icon={faTimesCircle}
                           size="lg"

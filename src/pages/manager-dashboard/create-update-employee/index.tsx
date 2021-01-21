@@ -1,4 +1,5 @@
 import { Box, Card, Grid } from '@material-ui/core';
+import { toast } from 'react-toastify';
 
 import React, { ChangeEvent } from 'react';
 import Text from 'Components/input-fields/text';
@@ -7,13 +8,10 @@ import { addEmployee } from 'Services/api';
 import DropDown from 'Components/input-fields/dropdown';
 import Button from 'Components/input-fields/button';
 import { UserRoles } from 'Utils/ListUtil';
-import { useDispatch } from 'react-redux';
-import { setModalStatus } from 'Actions/GlobalActions';
 
 import validateForm from './validateForm';
 
-const CreateUpdateEmployee = (props: { selectedId?: number; loadTable: () => void }): JSX.Element => {
-  const dispatch = useDispatch();
+const CreateUpdateEmployee = (props: { selectedId?: string; loadTable: () => void }): JSX.Element => {
   const { selectedId, loadTable } = props;
   const userRolesOptions = UserRoles.options;
 
@@ -37,11 +35,11 @@ const CreateUpdateEmployee = (props: { selectedId?: number; loadTable: () => voi
 
     addEmployee(formData)
       .then((res) => {
-        dispatch(setModalStatus(false));
+        toast.success('Employee added sucessfully!');
         loadTable();
       })
       .catch((err) => {
-        console.log(JSON.parse(err.message).message);
+        toast.error('Fail to add employee!');
       });
   };
 

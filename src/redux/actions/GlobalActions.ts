@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 
-import { GlobalDispatchTypes, SET_LOADER_STATUS, SET_MODAL_STATUS } from '../types/GlobalActionTypes';
+import { GlobalDispatchTypes, SET_LOADER_STATUS } from '../types/GlobalActionTypes';
 
 // Set loader status
 export const setLoaderStatus = (loaderStatus: boolean) => (dispatch: Dispatch<GlobalDispatchTypes>): void => {
@@ -14,14 +14,5 @@ export const setLoaderStatus = (loaderStatus: boolean) => (dispatch: Dispatch<Gl
   }
 };
 
-// Set modal status
-export const setModalStatus = (modalStatus: boolean) => (dispatch: Dispatch<GlobalDispatchTypes>): void => {
-  try {
-    dispatch({
-      type: SET_MODAL_STATUS,
-      payload: modalStatus,
-    });
-  } catch (error) {
-    throw new Error(error);
-  }
-};
+// Set test status
+export const test = () => (dispatch: Dispatch<GlobalDispatchTypes>): void => {};
