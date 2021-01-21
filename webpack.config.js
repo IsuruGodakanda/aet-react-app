@@ -115,7 +115,7 @@ module.exports = (env) => {
         template: 'public/index.html',
       }),
       new Dotenv({
-        path: 'src/config/dev.env',
+        path: `src/config/${env.platform}.env`,
         safe: true,
         systemvars: true,
         silent: true,
@@ -250,7 +250,7 @@ module.exports = (env) => {
         chunkFilename: 'static/css/[name].[contenthash].css',
       }),
       new Dotenv({
-        path: 'src/config/staging.env',
+        path: `src/config/${env.platform}.env`,
         safe: true,
         systemvars: true,
         silent: true,
@@ -259,5 +259,5 @@ module.exports = (env) => {
     ],
   };
 
-  return env.platform === 'dev' ? devConfig : stagingConfig;
+  return env.NODE_ENV === 'development' ? devConfig : stagingConfig;
 };
