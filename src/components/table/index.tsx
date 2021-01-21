@@ -134,14 +134,6 @@ const TableComponent = (props: {
     }
   };
 
-  const onViewUpdateRow = (row: Record<string, unknown>): void => {
-    alert(row);
-  };
-
-  const onDeleteRow = (row: Record<string, unknown>): void => {
-    alert(row);
-  };
-
   const ModalButton: React.FC = () => (
     <FontAwesomeIcon
       id="viewModal"
@@ -151,6 +143,14 @@ const TableComponent = (props: {
       title="View more detail"
     />
   );
+
+  const onViewUpdateRow = (row: Record<string, unknown>): void => {
+    alert(row);
+  };
+
+  const onDeleteRow = (row: Record<string, unknown>): void => {
+    alert(row);
+  };
 
   return (
     <div id="tablePaginated">
@@ -228,14 +228,22 @@ const TableComponent = (props: {
                     })}
                     {showEditColumn && showDeleteColumn && (
                       <TableCell align="right">
-                        <FontAwesomeIcon
+                        <Modal
+                          dialogTitle="Add Employee"
+                          dialogDescription="Add worker or manager into the office"
+                          maxWidth="xs"
+                          modalActionNode={<ModalButton />}
+                        >
+                          <CreateUpdateForm loadTable={loadTableData} />
+                        </Modal>
+                        {/* <FontAwesomeIcon
                           icon={faEye}
                           size="lg"
                           id="viewIcon"
                           onClick={() => {
                             onViewUpdateRow(row);
                           }}
-                        />
+                        /> */}
                         <FontAwesomeIcon
                           icon={faTimesCircle}
                           size="lg"

@@ -12,9 +12,9 @@ import { setModalStatus } from 'Actions/GlobalActions';
 
 import validateForm from './validateForm';
 
-const component = (props: { selectedId?: number; loadTable: () => void }): JSX.Element => {
+const CreateUpdateEmployee = (props: { selectedId?: number; loadTable: () => void }): JSX.Element => {
   const dispatch = useDispatch();
-  const { selectedId = 0, loadTable } = props;
+  const { selectedId, loadTable } = props;
   const userRolesOptions = UserRoles.options;
 
   const [formData, setFormData] = React.useState<IEmployeeObj>({
@@ -150,4 +150,8 @@ const component = (props: { selectedId?: number; loadTable: () => void }): JSX.E
   );
 };
 
-export default component;
+CreateUpdateEmployee.defaultProps = {
+  selectedId: '',
+};
+
+export default CreateUpdateEmployee;
