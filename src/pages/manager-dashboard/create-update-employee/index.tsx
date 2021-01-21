@@ -3,15 +3,15 @@ import { toast } from 'react-toastify';
 
 import React, { ChangeEvent } from 'react';
 import Text from 'Components/input-fields/text';
-import { find, isEqual } from 'lodash-es';
-import { addEmployee } from 'Services/api';
+import { find, isEqual, isEmpty } from 'lodash-es';
+import { getUserById, addEmployee, updateUserById } from 'Services/api';
 import DropDown from 'Components/input-fields/dropdown';
 import Button from 'Components/input-fields/button';
 import { UserRoles } from 'Utils/ListUtil';
 
 import validateForm from './validateForm';
 
-const CreateUpdateEmployee = (props: { selectedId?: string; loadTable: () => void }): JSX.Element => {
+const CreateUpdateEmployee = (props: { selectedId?: string | undefined; loadTable: () => void }): JSX.Element => {
   const { selectedId, loadTable } = props;
   const userRolesOptions = UserRoles.options;
 
@@ -33,14 +33,25 @@ const CreateUpdateEmployee = (props: { selectedId?: string; loadTable: () => voi
   const onSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    addEmployee(formData)
-      .then((res) => {
-        toast.success('Employee added sucessfully!');
-        loadTable();
-      })
-      .catch((err) => {
-        toast.error('Fail to add employee!');
-      });
+    if (isEmpty(selectedId)) {
+      addEmployee(formData)
+        .then((res) => {
+          toast.success('Employee added sucessfully!');
+          loadTable();
+        })
+        .catch((err) => {
+          toast.error('Fail to add employee!');
+        });
+    } else {
+      updateUserById(selectedId, formData)
+        .then((res) => {
+          toast.success('Employee updated sucessfully!');
+          loadTable();
+        })
+        .catch((err) => {
+          toast.error('Fail to update employee!');
+        });
+    }
   };
 
   const activeSubmitButton = () => {
@@ -50,6 +61,22 @@ const CreateUpdateEmployee = (props: { selectedId?: string; loadTable: () => voi
       setDisabledForm(true);
     }
   };
+
+  const formDataLoad = (): void => {
+    if (!isEmpty(selectedId)) {
+      getUserById(selectedId)
+        .then((res) => {
+          setFormData({ ...formData, name: res.name, email: res.email, role: res.role });
+        })
+        .catch((err) => {
+          toast.error('Fail to load employee data!');
+        });
+    }
+  };
+
+  React.useEffect(() => {
+    formDataLoad();
+  }, []);
 
   React.useEffect(() => {
     activeSubmitButton();

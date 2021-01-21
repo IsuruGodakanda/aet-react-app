@@ -21,7 +21,7 @@ const Search = (props: IProps): JSX.Element => {
       id="search"
       name="search"
       type="text"
-      label="search"
+      label="Search by name"
       value={search}
       onChange={(e) => onInputChange(e.target.value)}
       icon={faSearch}

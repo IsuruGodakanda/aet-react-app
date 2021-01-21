@@ -11,7 +11,7 @@ import TableHead from '@material-ui/core/TableHead';
 import { TablePagination, Grid } from '@material-ui/core';
 import TableRow from '@material-ui/core/TableRow';
 import { camelCaseToNormalString } from 'Utils/commonUtil';
-import { getTableData } from 'Services/api';
+import { getTableData, deleteTableRecordById } from 'Services/api';
 import { isEmpty } from 'lodash-es';
 import { faEye, faTimesCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'Components/modal';
@@ -135,6 +135,16 @@ const TableComponent = (props: {
     }
   };
 
+  const onDeleteRecord = (id: string): void => {
+    deleteTableRecordById(`${url}/${id}`)
+      .then((res) => {
+        loadTableData();
+      })
+      .catch((err) => {
+        toast.error('Fail to delete the record!');
+      });
+  };
+
   const AddButton: React.FC = () => (
     <FontAwesomeIcon
       id="viewModal"
@@ -239,7 +249,7 @@ const TableComponent = (props: {
                           id="deleteIcon"
                           className="ml-1"
                           onClick={() => {
-                            onDeleteRow(row);
+                            onDeleteRecord(row._id);
                           }}
                         />
                       </TableCell>
