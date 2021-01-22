@@ -2,12 +2,11 @@ import './index.css';
 
 import Table from 'Components/table';
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { Box, Grid } from '@material-ui/core';
 import CreateUpdateEmployeeForm from './create-update-employee';
 
-const ManagerDashboard = (): JSX.Element => {
+const Employee = (): JSX.Element => {
   return (
     <Grid container id="managerboardContent">
       <Grid item xs={12}>
@@ -16,7 +15,6 @@ const ManagerDashboard = (): JSX.Element => {
             <Grid item xs={9}>
               <h1>YOUR ARE IN THE MANAGER&apos;S DASHBOARD</h1>
             </Grid>
-            <Link to="dashboard">Dashboard</Link>
           </Grid>
 
           <Grid container className="section">
@@ -42,4 +40,4 @@ const ManagerDashboard = (): JSX.Element => {
   );
 };
 
-export default ManagerDashboard;
+export default Employee;

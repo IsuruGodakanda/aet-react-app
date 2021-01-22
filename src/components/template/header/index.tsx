@@ -1,8 +1,9 @@
 import DropDown from 'Components/drop-down';
 import HamburgerMenu from 'Components/hamburger-menu';
 import React from 'react';
+import { PermissionHOC, UserRole } from 'Services/userRoleService';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { RootStore } from 'Redux/Store';
 import { logo } from 'Utils/AssetUtil';
 
@@ -28,21 +29,24 @@ const Header = (): JSX.Element => {
       </div>
       <nav className={`${open ? 'block' : 'hidden'} sm:block`}>
         <div className="px-2 pt-2 pb-4 sm:flex sm:p-0">
-          <Link to="/#" className="block px-2 py-1 text-white font-semibold rounded no-underline hover:bg-gray-800">
-            Register
-          </Link>
-          <Link
-            to="/#"
+          <NavLink
+            strict
+            to="/dashboard"
             className="mt-1 block px-2 py-1 text-white font-semibold rounded no-underline hover:bg-gray-800 sm:mt-0 sm:ml-2"
+            activeClassName="border-b-2 border-brand-primary-color"
           >
-            Sign In
-          </Link>
-          <Link
-            to="/#"
-            className="mt-1 block px-2 py-1 text-white font-semibold rounded no-underline hover:bg-gray-800 sm:mt-0 sm:ml-2"
-          >
-            About
-          </Link>
+            Dashboard
+          </NavLink>
+          <PermissionHOC roles={[UserRole.MANAGER]}>
+            <NavLink
+              strict
+              to="/employee"
+              className="mt-1 block px-2 py-1 text-white font-semibold rounded no-underline hover:bg-gray-800 sm:mt-0 sm:ml-2"
+              activeClassName="border-b-2 border-brand-primary-color"
+            >
+              Employees
+            </NavLink>
+          </PermissionHOC>
           <DropDown />
         </div>
         <div className="px-4 py-5 border-t border-gray-800 sm:hidden">

@@ -105,4 +105,16 @@
   button.secondary {
     @apply bg-grey;
   }
+
+  .iconTheme {
+    transition: color 150ms ease-in-out;
+    @apply text-primaryBlue cursor-pointer;
+  }
+  .iconTheme:hover {
+    @apply text-secondaryRed;
+  }
+
+  #deleteIcon {
+    @apply text-secondaryRed;
+  }
 }

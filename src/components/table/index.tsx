@@ -147,17 +147,11 @@ const TableComponent = (props: {
   };
 
   const AddButton: React.FC = () => (
-    <FontAwesomeIcon
-      id="viewModal"
-      icon={faUserPlus}
-      size="lg"
-      className="downloadIcon ml-1"
-      title="View more detail"
-    />
+    <FontAwesomeIcon id="viewModal" icon={faUserPlus} size="lg" className="iconTheme ml-1" title="View more detail" />
   );
 
   const UpdateButton: React.FC = () => (
-    <FontAwesomeIcon id="viewModal" icon={faEye} size="lg" className="downloadIcon ml-1" title="View more detail" />
+    <FontAwesomeIcon id="viewModal" icon={faEye} size="lg" className="iconTheme ml-1" title="View more detail" />
   );
 
   const DeleteButton: React.FC = () => (

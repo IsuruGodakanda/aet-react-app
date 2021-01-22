@@ -6,7 +6,7 @@ import RouteHandleHOC from './routeHandleHOC';
 
 const Login = lazy(() => import('Pages/auth/login'));
 const Dashboard = lazy(() => import('Pages/dashboard'));
-const ManagerDashboard = lazy(() => import('Pages/manager-dashboard'));
+const Employee = lazy(() => import('Pages/employee'));
 const NotFound = lazy(() => import('Pages/NotFound'));
 
 const Routes = (): JSX.Element => {
@@ -15,7 +15,7 @@ const Routes = (): JSX.Element => {
       <Switch>
         <RouteHandleHOC exact path="/" routeType="public" component={Login} />
         <RouteHandleHOC exact path="/dashboard" routeType="protected" component={Dashboard} />
-        <RouteHandleHOC exact path="/manager" routeType="protected" component={ManagerDashboard} />
+        <RouteHandleHOC exact path="/employee" routeType="protected" component={Employee} />
 
         <Route component={NotFound} />
       </Switch>

@@ -13,7 +13,7 @@ export const validateUserRole = (path: string | string[] | undefined): boolean =
   const token = getSession(SessionKey.AUTH_TOKEN);
 
   if (decodeJWT(token).role === UserRole.WORKER) {
-    return path !== '/manager';
+    return path !== '/employee';
   }
   return true;
 };
@@ -33,10 +33,10 @@ const permission = (ComposedComponent) => {
       }
     }, []);
 
-    return <>{hideable ? null : <ComposedComponent {...props} />}</>;
+    return hideable ? null : <ComposedComponent {...props} />;
   };
 
   return ShowHideComponent;
 };
 
-export const PermissionHOC = permission('div');
+export const PermissionHOC = permission(React.Fragment);
