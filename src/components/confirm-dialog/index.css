@@ -1,0 +1,19 @@
+button.MuiButton-text {
+  padding: 8px 20px;
+}
+button.MuiButton-root.primary {
+  background-color: var(--grey-light);
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+button.MuiButton-root.primary:hover {
+  background-color: var(--grey-dark);
+}
+button.MuiButton-root.secondary {
+  background-color: var(--grey-light);
+  color: var(--grey-darker);
+}
+button.MuiButton-root.secondary:hover {
+  background-color: var(--grey-dark);
+  color: var(--grey-darker);
+}

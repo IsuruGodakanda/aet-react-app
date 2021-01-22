@@ -15,6 +15,7 @@ import { getTableData, deleteTableRecordById } from 'Services/api';
 import { isEmpty } from 'lodash-es';
 import { faEye, faTimesCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'Components/modal';
+import ConfirmDialog from 'Components/confirm-dialog';
 import Search from '../search';
 import './index.css';
 
@@ -159,6 +160,10 @@ const TableComponent = (props: {
     <FontAwesomeIcon id="viewModal" icon={faEye} size="lg" className="downloadIcon ml-1" title="View more detail" />
   );
 
+  const DeleteButton: React.FC = () => (
+    <FontAwesomeIcon icon={faTimesCircle} size="lg" id="deleteIcon" className="ml-1" />
+  );
+
   return (
     <div id="tablePaginated">
       <Grid className="p0">
@@ -243,14 +248,13 @@ const TableComponent = (props: {
                         >
                           <CreateUpdateForm selectedId={row._id} loadTable={loadTableData} />
                         </Modal>
-                        <FontAwesomeIcon
-                          icon={faTimesCircle}
-                          size="lg"
-                          id="deleteIcon"
-                          className="ml-1"
-                          onClick={() => {
+                        <ConfirmDialog
+                          title="Confirm delete"
+                          content="Do you want to delete this record?"
+                          onConfirm={() => {
                             onDeleteRecord(row._id);
                           }}
+                          confirmDialogActionNode={<DeleteButton />}
                         />
                       </TableCell>
                     )}
