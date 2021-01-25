@@ -88,7 +88,7 @@ const TextComponent = (props: TextProps): JSX.Element => {
         disabled={disabled}
         error={!isEmpty(helperText)}
         helperText={!isEmpty(helperText) && helperText}
-        className={className}
+        className={`${className} w-320px`}
         InputProps={
           icon
             ? {
