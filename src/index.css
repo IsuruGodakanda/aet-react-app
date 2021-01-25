@@ -61,6 +61,10 @@
     @apply outline-none;
   }
 
+  button.secondary {
+    @apply bg-grey;
+  }
+
   .caption {
     line-height: 22px;
     letter-spacing: 0.32px;
@@ -100,10 +104,6 @@
 
   .cardfull {
     @apply rounded-lg shadow-primaryBoxShadow py-10 px-5;
-  }
-
-  button.secondary {
-    @apply bg-grey;
   }
 
   .iconTheme {
