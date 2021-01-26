@@ -36,6 +36,10 @@ const CreateUpdateEmployee = (props: TProps): JSX.Element => {
 
   const [disabledForm, setDisabledForm] = React.useState<boolean>(true);
 
+  const clearForm = () => {
+    setFormData({ ...formData, name: '', email: '', role: 'worker' });
+  };
+
   const onSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setLoader(true);
@@ -44,6 +48,7 @@ const CreateUpdateEmployee = (props: TProps): JSX.Element => {
       addEmployee(formData)
         .then((res) => {
           setLoader(false);
+          clearForm();
           toast.success('Employee added sucessfully!');
           loadTable();
         })
