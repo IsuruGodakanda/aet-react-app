@@ -23,6 +23,11 @@ const ConfirmDialog = (props: {
     setOpen(false);
   };
 
+  const openDialog = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void => {
+    event.preventDefault();
+    setOpen(true);
+  };
+
   return (
     <>
       <Dialog
@@ -45,9 +50,9 @@ const ConfirmDialog = (props: {
           </Button>
         </DialogActions>
       </Dialog>
-      <Button id="modal-button" onClick={() => setOpen(true)} className="primary">
+      <a id="modal-button" onClick={(e) => openDialog(e)} role="button" href="/#">
         {confirmDialogActionNode}
-      </Button>
+      </a>
     </>
   );
 };

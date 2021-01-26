@@ -7,7 +7,6 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
 import { TablePagination, Grid } from '@material-ui/core';
 import TableRow from '@material-ui/core/TableRow';
 import { camelCaseToNormalString } from 'Utils/commonUtil';
@@ -16,7 +15,8 @@ import { isEmpty } from 'lodash-es';
 import { faEye, faTimesCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'Components/modal';
 import ConfirmDialog from 'Components/confirm-dialog';
-import Search from '../search';
+import Search from './search';
+import TableHeaders from './headers';
 import './index.css';
 
 type TProps = {
@@ -156,7 +156,13 @@ const TableComponent = (props: TProps): JSX.Element => {
   };
 
   const AddButton: React.FC = () => (
-    <FontAwesomeIcon id="viewModal" icon={faUserPlus} size="lg" className="iconTheme ml-1" title="View more detail" />
+    <FontAwesomeIcon
+      id="viewModal"
+      icon={faUserPlus}
+      size="lg"
+      className="iconTheme ml-1 mr-4"
+      title="View more detail"
+    />
   );
 
   const UpdateButton: React.FC = () => (
@@ -192,38 +198,35 @@ const TableComponent = (props: TProps): JSX.Element => {
         </Grid>
       </Grid>
       <TableContainer component={Paper} elevation={0} className="cardContent">
-        <Table aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              {columns.map((column, index) => {
-                return (
-                  column.showColumn && (
-                    <TableCell key={column.key} className="column">
-                      {column.label}
-                    </TableCell>
-                  )
-                );
-              })}
-              {(showEditColumn || showDeleteColumn) && (
-                <TableCell align="right" className="column">
-                  Action
-                </TableCell>
-              )}
-            </TableRow>
-          </TableHead>
-          {isEmpty(computedData) ? (
-            <TableBody>
-              <TableRow>{emptyRecordsMessage}</TableRow>
-            </TableBody>
-          ) : tableLoad ? (
-            <TableBody>
-              <TableRow>
-                <div style={{ padding: '100px', color: '#000000', width: '100%', textAlign: 'center' }}>
-                  {loadRecordsMessage}
-                </div>
-              </TableRow>
-            </TableBody>
-          ) : (
+        {isEmpty(computedData) ? (
+          <>
+            <Table aria-label="simple table">
+              <TableHeaders columns={columns} showEditColumn={showEditColumn} showDeleteColumn={showDeleteColumn} />
+            </Table>
+            <Table aria-label="simple table">
+              <TableBody>
+                <TableRow>{emptyRecordsMessage}</TableRow>
+              </TableBody>
+            </Table>
+          </>
+        ) : tableLoad ? (
+          <>
+            <Table aria-label="simple table">
+              <TableHeaders columns={columns} showEditColumn={showEditColumn} showDeleteColumn={showDeleteColumn} />
+            </Table>
+            <Table aria-label="simple table">
+              <TableBody>
+                <TableRow>
+                  <div style={{ padding: '100px', color: '#000000', width: '100%', textAlign: 'center' }}>
+                    {loadRecordsMessage}
+                  </div>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </>
+        ) : (
+          <Table aria-label="simple table">
+            <TableHeaders columns={columns} showEditColumn={showEditColumn} showDeleteColumn={showDeleteColumn} />
             <TableBody>
               {fetchRows.map((row, rowIndex) => {
                 return (
@@ -261,8 +264,8 @@ const TableComponent = (props: TProps): JSX.Element => {
                 );
               })}
             </TableBody>
-          )}
-        </Table>
+          </Table>
+        )}
       </TableContainer>
       {enablePagination && (
         <TablePagination

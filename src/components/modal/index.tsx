@@ -23,6 +23,11 @@ const Modal = (props: {
     setModalOpen(!modalOpen);
   };
 
+  const openModal = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void => {
+    event.preventDefault();
+    setModalOpen(true);
+  };
+
   return (
     <>
       <Dialog
@@ -69,9 +74,9 @@ const Modal = (props: {
           </Button>
         </DialogActions>
       </Dialog>
-      <Button id="modal-button" onClick={handleModal} className="primary">
+      <a id="modal-button" className="self-center" onClick={(e) => openModal(e)} role="button" href="/#">
         {modalActionNode}
-      </Button>
+      </a>
     </>
   );
 };
