@@ -5,6 +5,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { login } from 'Services/api';
+import LoaderHOC from 'Services/loaderService';
 import { SessionKey, setSession } from 'Services/securityService';
 import { logo } from 'Utils/AssetUtil';
 
@@ -33,10 +34,15 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Login = (): JSX.Element => {
+type TProps = {
+  setLoader: (status: boolean) => void;
+};
+
+const Login = (props: TProps): JSX.Element => {
   const dispatch = useDispatch();
   const history = useHistory();
   const classes = useStyles({});
+  const { setLoader } = props;
 
   const [formData, setFormData] = React.useState<ILoginDTO>({
     email: '',
@@ -59,15 +65,18 @@ const Login = (): JSX.Element => {
 
   const onSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    setLoader(true);
 
     login(formData)
       .then((res) => {
         const authToken = res.token;
         setSession({ [SessionKey.AUTH_TOKEN]: authToken });
         dispatch(setAuthUser());
+        setLoader(false);
         history.push('/dashboard');
       })
       .catch(() => {
+        setLoader(false);
         setServerError('Invalid Credentials');
       });
   };
@@ -168,4 +177,4 @@ const Login = (): JSX.Element => {
   );
 };
 
-export default Login;
+export default LoaderHOC(Login);

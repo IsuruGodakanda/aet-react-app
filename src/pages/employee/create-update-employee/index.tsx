@@ -11,8 +11,14 @@ import { UserRoles } from 'Utils/ListUtil';
 
 import validateForm from './validateForm';
 
-const CreateUpdateEmployee = (props: { selectedId?: string | undefined; loadTable: () => void }): JSX.Element => {
-  const { selectedId, loadTable } = props;
+type TProps = {
+  setLoader: (status: boolean) => void;
+  selectedId?: string | undefined;
+  loadTable: () => void;
+};
+
+const CreateUpdateEmployee = (props: TProps): JSX.Element => {
+  const { setLoader, selectedId, loadTable } = props;
   const userRolesOptions = UserRoles.options;
 
   const [formData, setFormData] = React.useState<IEmployeeObj>({
@@ -32,23 +38,28 @@ const CreateUpdateEmployee = (props: { selectedId?: string | undefined; loadTabl
 
   const onSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    setLoader(true);
 
     if (isEmpty(selectedId)) {
       addEmployee(formData)
         .then((res) => {
+          setLoader(false);
           toast.success('Employee added sucessfully!');
           loadTable();
         })
         .catch((err) => {
+          setLoader(false);
           toast.error('Fail to add employee!');
         });
     } else {
       updateUserById(selectedId, formData)
         .then((res) => {
+          setLoader(false);
           toast.success('Employee updated sucessfully!');
           loadTable();
         })
         .catch((err) => {
+          setLoader(false);
           toast.error('Fail to update employee!');
         });
     }
@@ -64,11 +75,15 @@ const CreateUpdateEmployee = (props: { selectedId?: string | undefined; loadTabl
 
   const formDataLoad = (): void => {
     if (!isEmpty(selectedId)) {
+      setLoader(true);
+
       getUserById(selectedId)
         .then((res) => {
+          setLoader(false);
           setFormData({ ...formData, name: res.name, email: res.email, role: res.role });
         })
         .catch((err) => {
+          setLoader(false);
           toast.error('Fail to load employee data!');
         });
     }

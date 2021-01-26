@@ -19,7 +19,8 @@ import ConfirmDialog from 'Components/confirm-dialog';
 import Search from '../search';
 import './index.css';
 
-const TableComponent = (props: {
+type TProps = {
+  setLoader: (status: boolean) => void;
   data?: any;
   url?: string;
   queryParams?: any;
@@ -32,8 +33,11 @@ const TableComponent = (props: {
   emptyRecordsMessage?: string;
   loadRecordsMessage?: string;
   createUpdateForm?: React.ReactNode;
-}): JSX.Element => {
+};
+
+const TableComponent = (props: TProps): JSX.Element => {
   const {
+    setLoader,
     data,
     url = '/',
     queryParams,
@@ -100,6 +104,7 @@ const TableComponent = (props: {
         setTableLoad(false);
       })
       .catch((err) => {
+        setTableLoad(false);
         toast.error('Fail to load table data!');
       });
   };
@@ -137,11 +142,15 @@ const TableComponent = (props: {
   };
 
   const onDeleteRecord = (id: string): void => {
+    setLoader(true);
+
     deleteTableRecordById(`${url}/${id}`)
       .then((res) => {
+        setLoader(false);
         loadTableData();
       })
       .catch((err) => {
+        setLoader(false);
         toast.error('Fail to delete the record!');
       });
   };
@@ -170,7 +179,7 @@ const TableComponent = (props: {
                 maxWidth="xs"
                 modalActionNode={<AddButton />}
               >
-                <CreateUpdateForm loadTable={loadTableData} />
+                <CreateUpdateForm loadTable={loadTableData} setLoader={setLoader} />
               </Modal>
               <Search
                 onSearch={(value) => {
@@ -204,18 +213,14 @@ const TableComponent = (props: {
           </TableHead>
           {isEmpty(computedData) ? (
             <TableBody>
-              <TableRow>
-                <TableCell>{emptyRecordsMessage}</TableCell>
-              </TableRow>
+              <TableRow>{emptyRecordsMessage}</TableRow>
             </TableBody>
           ) : tableLoad ? (
             <TableBody>
               <TableRow>
-                <TableCell>
-                  <div style={{ padding: '100px', color: '#000000', width: '100%', textAlign: 'center' }}>
-                    {loadRecordsMessage}
-                  </div>
-                </TableCell>
+                <div style={{ padding: '100px', color: '#000000', width: '100%', textAlign: 'center' }}>
+                  {loadRecordsMessage}
+                </div>
               </TableRow>
             </TableBody>
           ) : (
@@ -240,7 +245,7 @@ const TableComponent = (props: {
                           maxWidth="xs"
                           modalActionNode={<UpdateButton />}
                         >
-                          <CreateUpdateForm selectedId={row._id} loadTable={loadTableData} />
+                          <CreateUpdateForm selectedId={row._id} loadTable={loadTableData} setLoader={setLoader} />
                         </Modal>
                         <ConfirmDialog
                           title="Confirm delete"

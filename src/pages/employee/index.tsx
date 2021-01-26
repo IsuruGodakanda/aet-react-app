@@ -1,12 +1,19 @@
 import './index.css';
 
 import Table from 'Components/table';
+import LoaderHOC from 'Services/loaderService';
 import React from 'react';
 
 import { Box, Grid } from '@material-ui/core';
 import CreateUpdateEmployeeForm from './create-update-employee';
 
-const Employee = (): JSX.Element => {
+type TProps = {
+  setLoader: (status: boolean) => void;
+};
+
+const Employee = (props: TProps): JSX.Element => {
+  const { setLoader } = props;
+
   return (
     <Grid container id="managerboardContent">
       <Grid item xs={12}>
@@ -29,6 +36,7 @@ const Employee = (): JSX.Element => {
                     url="/users"
                     headerTitles={{ name: 'Name', email: 'Email', role: 'Role' }}
                     createUpdateForm={CreateUpdateEmployeeForm}
+                    setLoader={setLoader}
                   />
                 </Grid>
               </Grid>
@@ -40,4 +48,4 @@ const Employee = (): JSX.Element => {
   );
 };
 
-export default Employee;
+export default LoaderHOC(Employee);
