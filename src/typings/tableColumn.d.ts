@@ -3,4 +3,5 @@ interface ITableColumn {
   label: string;
   showColumn: boolean;
   textColor?: string;
+  sortable?: boolean;
 }

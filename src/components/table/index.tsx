@@ -57,29 +57,20 @@ const TableComponent = (props: TProps): JSX.Element => {
   const [count, setCount] = React.useState(0);
   const [page, setPage] = React.useState(0);
   const [search, setSearch] = React.useState('');
-  const [columns, setColumns] = React.useState<ITableColumn[]>([]);
+  const [sorting, setSorting] = React.useState({ field: '', order: '' });
+  const [columns, setColumns] = React.useState<ITableColumn[]>(headerTitles);
   const [tableLoad, setTableLoad] = React.useState(false);
-  const [showingTableHeaders, setShowingTableHeaders] = React.useState(headerTitles);
 
   const setColumnHeaders = (dataSet) => {
     const cols: ITableColumn[] = [];
 
     Object.entries(dataSet[0]).forEach(([key]) => {
-      if (showingTableHeaders) {
-        if (showingTableHeaders[key]) {
-          cols.push({
-            key,
-            label: showingTableHeaders[key],
-            showColumn: true,
-          });
-        }
-      } else {
-        cols.push({
-          key,
-          label: camelCaseToNormalString(key).toUpperCase(),
-          showColumn: true,
-        });
-      }
+      cols.push({
+        key,
+        label: camelCaseToNormalString(key).toUpperCase(),
+        showColumn: true,
+        sortable: false,
+      });
     });
 
     setColumns(cols);
@@ -89,14 +80,11 @@ const TableComponent = (props: TProps): JSX.Element => {
     setTableLoad(true);
     const filterQuery: ITableFilterPayload = { offset: page, limit: rowsPerPage, searchTerm: search };
 
-    getTableData(url, { ...filterQuery, ...queryParams })
+    getTableData(url, { ...filterQuery, ...queryParams, sortby: sorting.field, sortdirection: sorting.order })
       .then((res) => {
         if (isEmpty(columns)) {
-          if (!isEmpty(res.headerTitle)) {
-            setShowingTableHeaders({ answer: res.headerTitle });
-            setColumnHeaders(res.results);
-          } else {
-            setColumnHeaders(res.results);
+          if (!isEmpty(res.headerTitles)) {
+            setColumns(res.results);
           }
         }
         setComputedData(res.results);
@@ -113,7 +101,7 @@ const TableComponent = (props: TProps): JSX.Element => {
     if (serverSidePagination && enablePagination) {
       loadTableData();
     }
-  }, [page, rowsPerPage, search]);
+  }, [page, rowsPerPage, search, sorting]);
 
   const fetchRows = React.useMemo(() => {
     if (serverSidePagination && enablePagination) {
@@ -128,7 +116,7 @@ const TableComponent = (props: TProps): JSX.Element => {
 
     // Current Page slice
     return enablePagination ? computedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : computedData;
-  }, [data, computedData, page, rowsPerPage, search]);
+  }, [data, computedData, page, rowsPerPage, search, sorting]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -226,7 +214,12 @@ const TableComponent = (props: TProps): JSX.Element => {
           </>
         ) : (
           <Table aria-label="simple table">
-            <TableHeaders columns={columns} showEditColumn={showEditColumn} showDeleteColumn={showDeleteColumn} />
+            <TableHeaders
+              columns={columns}
+              showEditColumn={showEditColumn}
+              showDeleteColumn={showDeleteColumn}
+              onSorting={(field, order) => setSorting({ field, order })}
+            />
             <TableBody>
               {fetchRows.map((row, rowIndex) => {
                 return (

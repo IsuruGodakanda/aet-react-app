@@ -14,6 +14,12 @@ type TProps = {
 const Employee = (props: TProps): JSX.Element => {
   const { setLoader } = props;
 
+  const employeeHeaderTitles = [
+    { key: 'name', label: 'Name', showColumn: true, sortable: true },
+    { key: 'email', label: 'Email', showColumn: true, sortable: true },
+    { key: 'role', label: 'Role', showColumn: true, sortable: false },
+  ];
+
   return (
     <Grid container id="managerboardContent">
       <Grid item xs={12}>
@@ -34,7 +40,7 @@ const Employee = (props: TProps): JSX.Element => {
                 <Grid item xs={10}>
                   <Table
                     url="/users"
-                    headerTitles={{ name: 'Name', email: 'Email', role: 'Role' }}
+                    headerTitles={employeeHeaderTitles}
                     createUpdateForm={CreateUpdateEmployeeForm}
                     setLoader={setLoader}
                   />
