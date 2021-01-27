@@ -3,7 +3,6 @@ import './index.css';
 
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { emphasize } from '@material-ui/core/styles/colorManipulator';
 
 import { Button } from '@material-ui/core';
 
@@ -14,10 +13,11 @@ interface ButtonProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
   className?: string;
+  theme?: 'primary' | 'secondary' | 'dangour';
 }
 
 const useStyles = makeStyles({
-  button: {
+  primary: {
     color: '#FFFFFF',
     backgroundColor: '#036686',
     '&:hover, &:focus': {
@@ -27,11 +27,21 @@ const useStyles = makeStyles({
       backgroundColor: '#005e7d',
     },
   },
+  dangour: {
+    color: '#FFFFFF',
+    backgroundColor: '#CA554E',
+    '&:hover, &:focus': {
+      backgroundColor: '#a6453f',
+    },
+    '&:active': {
+      backgroundColor: '#a6453f',
+    },
+  },
 });
 
 const ButtonComponent = (props: ButtonProps): JSX.Element => {
   const classes = useStyles({});
-  const { id, type, value, onClick, disabled, className } = props;
+  const { id, type, value, onClick, disabled, className, theme = 'primary' } = props;
 
   return (
     <Button
@@ -39,7 +49,7 @@ const ButtonComponent = (props: ButtonProps): JSX.Element => {
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${classes.button} ${className}`}
+      className={`${classes[theme]} ${className}`}
       variant="contained"
       color="primary"
     >
@@ -51,6 +61,7 @@ const ButtonComponent = (props: ButtonProps): JSX.Element => {
 ButtonComponent.defaultProps = {
   disabled: false,
   className: '',
+  theme: 'primary',
 };
 
 export default ButtonComponent;

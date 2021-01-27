@@ -1,4 +1,5 @@
 import { setAuthUser } from 'Actions/AuthActions';
+import { setLoaderStatus } from 'Actions/GlobalActions';
 import Button from 'Components/input-fields/button';
 import Text from 'Components/input-fields/text';
 import React from 'react';
@@ -34,15 +35,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-type TProps = {
-  setLoader: (status: boolean) => void;
-};
-
-const Login = (props: TProps): JSX.Element => {
+const Login = (): JSX.Element => {
   const dispatch = useDispatch();
   const history = useHistory();
   const classes = useStyles({});
-  const { setLoader } = props;
 
   const [formData, setFormData] = React.useState<ILoginDTO>({
     email: '',
@@ -61,6 +57,10 @@ const Login = (props: TProps): JSX.Element => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
     setServerError('');
+  };
+
+  const setLoader = (status: boolean): void => {
+    dispatch(setLoaderStatus(status));
   };
 
   const onSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {

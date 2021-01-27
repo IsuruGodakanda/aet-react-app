@@ -3,22 +3,23 @@ import './index.css';
 import Table from 'Components/table';
 import LoaderHOC from 'Services/loaderService';
 import React from 'react';
+import { setLoaderStatus } from 'Actions/GlobalActions';
+import { useDispatch } from 'react-redux';
 
 import { Box, Grid } from '@material-ui/core';
 import CreateUpdateEmployeeForm from './create-update-employee';
 
-type TProps = {
-  setLoader: (status: boolean) => void;
-};
-
-const Employee = (props: TProps): JSX.Element => {
-  const { setLoader } = props;
-
+const Employee = (): JSX.Element => {
+  const dispatch = useDispatch();
   const employeeHeaderTitles = [
     { key: 'name', label: 'Name', showColumn: true, sortable: true },
     { key: 'email', label: 'Email', showColumn: true, sortable: true },
     { key: 'role', label: 'Role', showColumn: true, sortable: false },
   ];
+
+  const setLoader = (status: boolean): void => {
+    dispatch(setLoaderStatus(status));
+  };
 
   return (
     <Grid container id="managerboardContent">

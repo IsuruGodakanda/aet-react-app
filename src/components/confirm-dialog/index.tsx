@@ -1,6 +1,7 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid } from '@material-ui/core';
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
 
 import React from 'react';
+import Button from 'Components/input-fields/button';
 import './index.css';
 
 const ConfirmDialog = (props: {
@@ -42,12 +43,8 @@ const ConfirmDialog = (props: {
           <DialogContentText id="alert-dialog-slide-description">{content}</DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} className="secondary">
-            Cancel
-          </Button>
-          <Button onClick={handleConfirm} className="primary">
-            Confirm
-          </Button>
+          <Button id="cancel-button" onClick={handleClose} type="button" value="Cancel" theme="primary" />
+          <Button id="cancel-button" onClick={handleConfirm} type="button" value="Confirm" theme="dangour" />
         </DialogActions>
       </Dialog>
       <a id="modal-button" onClick={(e) => openDialog(e)} role="button" href="/#">
