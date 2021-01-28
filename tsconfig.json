@@ -6,7 +6,7 @@
     "skipLibCheck": true,
     "allowJs": true,
     "jsx": "react",
-    "types": ["cypress", "node"],
+    "types": ["node", "@types/jest"],
     "sourceMap": true,
     "outDir": "build/dist",
     "noEmit": true,

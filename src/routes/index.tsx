@@ -7,7 +7,7 @@ import RouteHandleHOC from './routeHandleHOC';
 const Login = lazy(() => import('Pages/auth/login'));
 const Dashboard = lazy(() => import('Pages/dashboard'));
 const Employee = lazy(() => import('Pages/employee'));
-const NotFound = lazy(() => import('Pages/NotFound'));
+const NotFound = lazy(() => import('Pages/not-found'));
 
 const Routes = (): JSX.Element => {
   return (
