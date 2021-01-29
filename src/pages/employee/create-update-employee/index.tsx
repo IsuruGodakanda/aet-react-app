@@ -17,7 +17,7 @@ type TProps = {
   loadTable: () => void;
 };
 
-const CreateUpdateEmployee = (props: TProps): JSX.Element => {
+const CreateUpdateEmployee: React.FC<TProps> = (props: TProps) => {
   const { setLoader, selectedId, loadTable } = props;
   const userRolesOptions = UserRoles.options;
 

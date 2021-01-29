@@ -189,7 +189,12 @@ const TableComponent = (props: TProps): JSX.Element => {
         {isEmpty(computedData) ? (
           <>
             <Table aria-label="simple table">
-              <TableHeaders columns={columns} showEditColumn={showEditColumn} showDeleteColumn={showDeleteColumn} />
+              <TableHeaders
+                columns={columns}
+                showEditColumn={showEditColumn}
+                showDeleteColumn={showDeleteColumn}
+                onSorting={(field, order) => setSorting({ field, order })}
+              />
             </Table>
             <Table aria-label="simple table">
               <TableBody>
@@ -200,7 +205,12 @@ const TableComponent = (props: TProps): JSX.Element => {
         ) : tableLoad ? (
           <>
             <Table aria-label="simple table">
-              <TableHeaders columns={columns} showEditColumn={showEditColumn} showDeleteColumn={showDeleteColumn} />
+              <TableHeaders
+                columns={columns}
+                showEditColumn={showEditColumn}
+                showDeleteColumn={showDeleteColumn}
+                onSorting={(field, order) => setSorting({ field, order })}
+              />
             </Table>
             <Table aria-label="simple table">
               <TableBody>

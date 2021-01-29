@@ -18,5 +18,6 @@ module.exports = {
     'Pages/(.*)$': '<rootDir>/src/pages/$1',
     'Redux/(.*)$': '<rootDir>/src/redux/$1',
     'Services/(.*)$': '<rootDir>/src/services/$1',
+    'Utils/(.*)$': '<rootDir>/src/utils/$1',
   },
 };
