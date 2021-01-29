@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { RootStore } from 'Redux/Store';
 import { removeSession, SessionKey } from 'Services/securityService';
 
-const DropDown = (): JSX.Element => {
+const DropDown: React.FC = () => {
   const authStore = useSelector((state: RootStore) => state.auth);
 
   const [open, setOpen] = React.useState(false);

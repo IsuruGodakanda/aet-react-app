@@ -1,3 +1,5 @@
+import '../index.css';
+
 import { isEmpty } from 'lodash-es';
 import React from 'react';
 
@@ -5,7 +7,6 @@ import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FormControl, makeStyles, TextField } from '@material-ui/core';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import '../index.css';
 
 const useStyles = makeStyles(() => ({
   input: {
@@ -14,7 +15,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-interface TextProps {
+interface IProps {
   id: string;
   name: string;
   type: string;
@@ -32,7 +33,7 @@ interface TextProps {
   errorMsg?: string;
 }
 
-const TextComponent = (props: TextProps): JSX.Element => {
+const TextComponent: React.FC<IProps> = (props: IProps) => {
   const classes = useStyles({});
   const {
     id,

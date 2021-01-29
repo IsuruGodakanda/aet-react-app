@@ -1,15 +1,16 @@
 import './index.css';
 
-import Table from 'Components/table';
-import LoaderHOC from 'Services/loaderService';
-import React from 'react';
 import { setLoaderStatus } from 'Actions/GlobalActions';
+import Table from 'Components/table';
+import React from 'react';
 import { useDispatch } from 'react-redux';
+import LoaderHOC from 'Services/loaderService';
 
 import { Box, Grid } from '@material-ui/core';
+
 import CreateUpdateEmployeeForm from './create-update-employee';
 
-const Employee = (): JSX.Element => {
+const Employee: React.FC = () => {
   const dispatch = useDispatch();
   const employeeHeaderTitles = [
     { key: 'name', label: 'Name', showColumn: true, sortable: true },

@@ -2,11 +2,11 @@
 import './index.css';
 
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 
 import { Button } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
-interface ButtonProps {
+interface IProps {
   id: string;
   type: 'submit' | 'reset' | 'button';
   value: string;
@@ -39,7 +39,7 @@ const useStyles = makeStyles({
   },
 });
 
-const ButtonComponent = (props: ButtonProps): JSX.Element => {
+const ButtonComponent: React.FC<IProps> = (props: IProps) => {
   const classes = useStyles({});
   const { id, type, value, onClick, disabled, className, theme = 'primary' } = props;
 

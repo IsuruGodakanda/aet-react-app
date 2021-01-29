@@ -1,16 +1,19 @@
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
-
-import React from 'react';
-import Button from 'Components/input-fields/button';
 import './index.css';
 
-const ConfirmDialog = (props: {
+import Button from 'Components/input-fields/button';
+import React from 'react';
+
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
+
+interface IProps {
   title: string;
   content: string;
   onClose?: (() => void) | undefined;
   onConfirm?: (() => void) | undefined;
   confirmDialogActionNode?: React.ReactNode;
-}): JSX.Element => {
+}
+
+const ConfirmDialog: React.FC<IProps> = (props: IProps) => {
   const { title, content, onClose = () => {}, onConfirm = () => {}, confirmDialogActionNode } = props;
   const [open, setOpen] = React.useState<boolean>(false);
 

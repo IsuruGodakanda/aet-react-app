@@ -1,7 +1,7 @@
-import React from 'react';
 import { shallow } from 'enzyme';
+import React from 'react';
 
-import Dashboard from '.';
+import Dashboard from './index';
 
 describe('Dashboard', () => {
   test('should render', () => {

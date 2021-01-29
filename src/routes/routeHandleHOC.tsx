@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
 import { validateUserRole } from 'Services/userRoleService';
 
-interface PrivateRouteProps extends RouteProps {
+interface IProps extends RouteProps {
   component: React.ComponentType<any>;
   routeType: 'public' | 'protected';
 }
@@ -25,7 +25,7 @@ const SetLayout = (props: any) => {
   );
 };
 
-const RouteHandleHOC = (props: PrivateRouteProps): JSX.Element => {
+const RouteHandleHOC: React.FC<IProps> = (props: IProps) => {
   const { component: Component, routeType, ...rest } = props;
   const dispatch = useDispatch();
 

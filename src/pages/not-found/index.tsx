@@ -1,7 +1,7 @@
 import MainCard from 'Components/cards/main';
 import React from 'react';
 
-const NotFound = (): JSX.Element => {
+const NotFound: React.FC = () => {
   return (
     <MainCard>
       <div className="container mx-auto p-6 sm:pt-0 sm:pb-6 lg:px-32">

@@ -33,11 +33,11 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-interface LoaderProps {
+interface IProps {
   loadingText?: string;
 }
 
-const Loader = (props: LoaderProps): JSX.Element => {
+const Loader: React.FC<IProps> = (props: IProps) => {
   const { loadingText } = props;
   const classes = useStyles({});
   return (

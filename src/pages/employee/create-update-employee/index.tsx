@@ -1,23 +1,23 @@
-import { Box, Card, Grid } from '@material-ui/core';
-import { toast } from 'react-toastify';
-
-import React, { ChangeEvent } from 'react';
-import Text from 'Components/input-fields/text';
-import { find, isEqual, isEmpty } from 'lodash-es';
-import { getUserById, addEmployee, updateUserById } from 'Services/api';
-import DropDown from 'Components/input-fields/dropdown';
 import Button from 'Components/input-fields/button';
+import DropDown from 'Components/input-fields/dropdown';
+import Text from 'Components/input-fields/text';
+import { find, isEmpty, isEqual } from 'lodash-es';
+import React, { ChangeEvent } from 'react';
+import { toast } from 'react-toastify';
+import { addEmployee, getUserById, updateUserById } from 'Services/api';
 import { UserRoles } from 'Utils/ListUtil';
+
+import { Box, Card, Grid } from '@material-ui/core';
 
 import validateForm from './validateForm';
 
-type TProps = {
+interface IProps {
   setLoader: (status: boolean) => void;
   selectedId?: string | undefined;
   loadTable: () => void;
-};
+}
 
-const CreateUpdateEmployee: React.FC<TProps> = (props: TProps) => {
+const CreateUpdateEmployee: React.FC<IProps> = (props: IProps) => {
   const { setLoader, selectedId, loadTable } = props;
   const userRolesOptions = UserRoles.options;
 

@@ -1,11 +1,11 @@
 import React from 'react';
 
-interface PropsForm {
+interface IProps {
   onToggle: () => void;
   open: boolean;
 }
 
-const HamburgerMenu = (props: PropsForm): JSX.Element => {
+const HamburgerMenu: React.FC<IProps> = (props: IProps) => {
   const { onToggle, open } = props;
 
   return (

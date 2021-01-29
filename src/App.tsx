@@ -5,11 +5,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import Store from './redux/Store';
 
-interface PropsForm {
+interface IProps {
   children: React.ReactNode;
 }
 
-const App = (props: PropsForm): JSX.Element => {
+const App: React.FC<IProps> = (props: IProps) => {
   const { children } = props;
 
   return (

@@ -1,7 +1,7 @@
-import React from 'react';
 import { shallow } from 'enzyme';
+import React from 'react';
 
-import NotFound from '.';
+import NotFound from './index';
 
 describe('NotFound', () => {
   test('should render', () => {

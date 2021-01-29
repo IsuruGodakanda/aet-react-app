@@ -1,14 +1,15 @@
 import './index.css';
 
-import React, { useState } from 'react';
 import Text from 'Components/input-fields/text';
+import React, { useState } from 'react';
+
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 interface IProps {
   onSearch: (value: string) => void;
 }
 
-const Search = (props: IProps): JSX.Element => {
+const Search: React.FC<IProps> = (props: IProps) => {
   const { onSearch } = props;
   const [search, setSearch] = useState('');
 

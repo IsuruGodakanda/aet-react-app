@@ -9,7 +9,7 @@ const Dashboard = lazy(() => import('Pages/dashboard'));
 const Employee = lazy(() => import('Pages/employee'));
 const NotFound = lazy(() => import('Pages/not-found'));
 
-const Routes = (): JSX.Element => {
+const Routes: React.FC = () => {
   return (
     <Suspense fallback={<Loader />}>
       <Switch>

@@ -1,5 +1,5 @@
-import React from 'react';
 import Loader from 'Components/loader';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootStore } from 'Redux/Store';
 

@@ -1,9 +1,26 @@
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import React, { ChangeEvent } from 'react';
-import TextField from '@material-ui/core/TextField';
-import { get, isEmpty, sortBy } from 'lodash-es';
-import { withStyles } from '@material-ui/core';
 import '../index.css';
+
+import { get, isEmpty, sortBy } from 'lodash-es';
+import React, { ChangeEvent } from 'react';
+
+import { withStyles } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+
+interface IProps {
+  id: string;
+  options: IOptionObj[];
+  selectedOption: IOptionObj | undefined;
+  label?: string;
+  disabled?: boolean;
+  sortedBy?: string;
+  style?: Record<string, unknown>;
+  placeholder?: string;
+  disableClearable?: boolean;
+  isSearchable?: boolean;
+  onSelectionChange: (event: any, value: unknown) => void;
+  getOptionLabel?: ((event: any, name?: string) => string) | undefined;
+}
 
 const SharedAutoComplete = withStyles({
   option: {
@@ -27,20 +44,7 @@ const SharedAutoComplete = withStyles({
   },
 })(Autocomplete);
 
-const DropDown = (props: {
-  id: string;
-  options: IOptionObj[];
-  selectedOption: IOptionObj | undefined;
-  label?: string;
-  disabled?: boolean;
-  sortedBy?: string;
-  style?: Record<string, unknown>;
-  placeholder?: string;
-  disableClearable?: boolean;
-  isSearchable?: boolean;
-  onSelectionChange: (event: any, value: unknown) => void;
-  getOptionLabel?: ((event: any, name?: string) => string) | undefined;
-}): JSX.Element => {
+const DropDown: React.FC<IProps> = (props: IProps) => {
   const {
     id,
     options,

@@ -1,4 +1,5 @@
 import { toQueryString } from 'Utils/commonUtil';
+
 import baseAPIService from './baseAPI';
 
 const authURL = 'auth';

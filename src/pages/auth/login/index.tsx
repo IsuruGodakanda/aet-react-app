@@ -35,7 +35,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Login = (): JSX.Element => {
+const Login: React.FC = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const classes = useStyles({});

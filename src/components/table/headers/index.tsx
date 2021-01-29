@@ -1,9 +1,10 @@
 import React from 'react';
+
+import { faSortAmountDown, faSortAmountUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSortAmountUp, faSortAmountDown } from '@fortawesome/free-solid-svg-icons';
 
 interface IProps {
   columns: ITableColumn[];
@@ -12,7 +13,7 @@ interface IProps {
   onSorting: (field: string, order: string) => void;
 }
 
-const TableHeaders = (props: IProps): JSX.Element => {
+const TableHeaders: React.FC<IProps> = (props: IProps) => {
   const { columns, showEditColumn, showDeleteColumn, onSorting } = props;
 
   const [sortingField, setSortingField] = React.useState('');

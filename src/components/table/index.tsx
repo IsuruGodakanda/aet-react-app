@@ -1,25 +1,27 @@
+import './index.css';
+
+import ConfirmDialog from 'Components/confirm-dialog';
+import Modal from 'Components/modal';
+import { isEmpty } from 'lodash-es';
 import React from 'react';
 import { toast } from 'react-toastify';
+import { deleteTableRecordById, getTableData } from 'Services/api';
+import { camelCaseToNormalString } from 'Utils/commonUtil';
 
+import { faEye, faTimesCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Grid, TablePagination } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
-import { TablePagination, Grid } from '@material-ui/core';
 import TableRow from '@material-ui/core/TableRow';
-import { camelCaseToNormalString } from 'Utils/commonUtil';
-import { getTableData, deleteTableRecordById } from 'Services/api';
-import { isEmpty } from 'lodash-es';
-import { faEye, faTimesCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import Modal from 'Components/modal';
-import ConfirmDialog from 'Components/confirm-dialog';
-import Search from './search';
-import TableHeaders from './headers';
-import './index.css';
 
-type TProps = {
+import TableHeaders from './headers';
+import Search from './search';
+
+interface IProps {
   setLoader: (status: boolean) => void;
   data?: any;
   url?: string;
@@ -33,9 +35,9 @@ type TProps = {
   emptyRecordsMessage?: string;
   loadRecordsMessage?: string;
   createUpdateForm?: React.ReactNode;
-};
+}
 
-const TableComponent = (props: TProps): JSX.Element => {
+const TableComponent: React.FC<IProps> = (props: IProps) => {
   const {
     setLoader,
     data,

@@ -1,13 +1,13 @@
 import DropDown from 'Components/drop-down';
 import HamburgerMenu from 'Components/hamburger-menu';
 import React from 'react';
-import { PermissionHOC, UserRole } from 'Services/userRoleService';
 import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { RootStore } from 'Redux/Store';
+import { PermissionHOC, UserRole } from 'Services/userRoleService';
 import { logo } from 'Utils/AssetUtil';
 
-const Header = (): JSX.Element => {
+const Header: React.FC = () => {
   const authStore = useSelector((state: RootStore) => state.auth);
   const [open, setOpen] = React.useState(true);
 

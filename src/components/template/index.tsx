@@ -1,14 +1,15 @@
+import './index.css';
+
 import React from 'react';
 
 import Footer from './footer';
 import Header from './header';
-import './index.css';
 
 interface IProps {
   children: React.ReactNode;
 }
 
-const Template = (props: IProps): JSX.Element => {
+const Template: React.FC<IProps> = (props: IProps) => {
   const { children } = props;
 
   return (

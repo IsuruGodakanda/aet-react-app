@@ -4,7 +4,7 @@ import React from 'react';
 
 import { Box, Grid } from '@material-ui/core';
 
-const Dashboard = (): JSX.Element => {
+const Dashboard: React.FC = () => {
   return (
     <Grid container id="dashboardContent">
       <Grid item xs={12}>

@@ -5,7 +5,7 @@ import React from 'react';
 
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid } from '@material-ui/core';
 
-const Modal = (props: {
+interface IProps {
   dialogTitle: string;
   dialogDescription?: string;
   actionDone?: boolean;
@@ -13,7 +13,9 @@ const Modal = (props: {
   maxWidth?: 'lg' | 'md' | 'sm' | 'xl' | 'xs' | false;
   onConfirm?: () => void;
   modalActionNode?: React.ReactNode;
-}): JSX.Element => {
+}
+
+const Modal: React.FC<IProps> = (props: IProps) => {
   const { onConfirm, dialogTitle, children, maxWidth, dialogDescription, actionDone, modalActionNode } = props;
 
   const [modalOpen, setModalOpen] = React.useState<boolean>(false);

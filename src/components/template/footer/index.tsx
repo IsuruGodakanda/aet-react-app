@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { fb, logoWhite, twitter } from 'Utils/AssetUtil';
 
-const Footer = (): JSX.Element => {
+const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-10 sm:py-10">
       <div className="text-center sm:text-left sm:flex-col px-4 py-3">
