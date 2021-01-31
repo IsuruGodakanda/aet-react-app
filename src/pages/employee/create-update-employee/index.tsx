@@ -3,8 +3,10 @@ import DropDown from 'Components/input-fields/dropdown';
 import Text from 'Components/input-fields/text';
 import { find, isEmpty, isEqual } from 'lodash-es';
 import React, { ChangeEvent } from 'react';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { addEmployee, getUserById, updateUserById } from 'Services/api';
+import { removeOpenModal } from 'Actions/GlobalActions';
 import { UserRoles } from 'Utils/ListUtil';
 
 import { Box, Card, Grid } from '@material-ui/core';
@@ -18,6 +20,7 @@ interface IProps {
 }
 
 const CreateUpdateEmployee: React.FC<IProps> = (props: IProps) => {
+  const dispatch = useDispatch();
   const { setLoader, selectedId, loadTable } = props;
   const userRolesOptions = UserRoles.options;
 
@@ -50,6 +53,7 @@ const CreateUpdateEmployee: React.FC<IProps> = (props: IProps) => {
           setLoader(false);
           clearForm();
           toast.success('Employee added sucessfully!');
+          dispatch(removeOpenModal());
           loadTable();
         })
         .catch((err) => {
@@ -61,6 +65,7 @@ const CreateUpdateEmployee: React.FC<IProps> = (props: IProps) => {
         .then((res) => {
           setLoader(false);
           toast.success('Employee updated sucessfully!');
+          dispatch(removeOpenModal());
           loadTable();
         })
         .catch((err) => {

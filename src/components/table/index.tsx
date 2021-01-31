@@ -170,6 +170,7 @@ const TableComponent: React.FC<IProps> = (props: IProps) => {
           <Grid className="pb-8">
             <Grid item xs={4} className="items-end flex">
               <Modal
+                id="addEmployee"
                 dialogTitle="Add Employee"
                 dialogDescription="Add worker or manager into the office"
                 maxWidth="xs"
@@ -248,6 +249,7 @@ const TableComponent: React.FC<IProps> = (props: IProps) => {
                     {showEditColumn && showDeleteColumn && (
                       <TableCell align="right">
                         <Modal
+                          id={`editEmployee${row._id}`}
                           dialogTitle="Edit Employee"
                           dialogDescription="Edit worker or manager into the office"
                           maxWidth="xs"

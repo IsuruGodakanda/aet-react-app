@@ -2,38 +2,43 @@ import './index.css';
 
 import { isEmpty } from 'lodash-es';
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootStore } from 'Redux/Store';
+import { setOpenModal, removeOpenModal } from 'Actions/GlobalActions';
 
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid } from '@material-ui/core';
 
 interface IProps {
+  id: string;
   dialogTitle: string;
   dialogDescription?: string;
   actionDone?: boolean;
   children: React.ReactNode;
   maxWidth?: 'lg' | 'md' | 'sm' | 'xl' | 'xs' | false;
-  onConfirm?: () => void;
+  onConfirm?: (() => void) | undefined;
   modalActionNode?: React.ReactNode;
 }
 
 const Modal: React.FC<IProps> = (props: IProps) => {
-  const { onConfirm, dialogTitle, children, maxWidth, dialogDescription, actionDone, modalActionNode } = props;
+  const globalStore = useSelector((state: RootStore) => state.global);
+  const dispatch = useDispatch();
 
-  const [modalOpen, setModalOpen] = React.useState<boolean>(false);
-
-  const handleModal = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    event.preventDefault();
-    setModalOpen(!modalOpen);
-  };
+  const { id, onConfirm, dialogTitle, children, maxWidth, dialogDescription, actionDone, modalActionNode } = props;
 
   const openModal = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void => {
     event.preventDefault();
-    setModalOpen(true);
+    dispatch(setOpenModal(event.currentTarget.id));
+  };
+
+  const closeModal = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    event.preventDefault();
+    dispatch(removeOpenModal());
   };
 
   return (
     <>
       <Dialog
-        open={modalOpen}
+        open={id === globalStore.openModal}
         keepMounted
         fullWidth
         maxWidth={maxWidth}
@@ -55,7 +60,7 @@ const Modal: React.FC<IProps> = (props: IProps) => {
         <DialogContent>
           <DialogContentText id="alert-dialog-description" />
           <Grid id="modal" container direction="column">
-            <Grid>{modalOpen && children}</Grid>
+            <Grid>{id === globalStore.openModal && children}</Grid>
           </Grid>
         </DialogContent>
         <DialogActions>
@@ -64,19 +69,19 @@ const Modal: React.FC<IProps> = (props: IProps) => {
               id="confirm"
               onClick={(event) => {
                 onConfirm();
-                handleModal(event);
+                closeModal(event);
               }}
               className="primary"
             >
               OK
             </Button>
           )}
-          <Button id="cancel" onClick={handleModal} className="primary">
+          <Button id="cancel" onClick={closeModal} className="primary">
             {actionDone ? 'OK' : 'CLOSE'}
           </Button>
         </DialogActions>
       </Dialog>
-      <a id="modal-button" className="self-center" onClick={(e) => openModal(e)} role="button" href="/#">
+      <a id={id} className="self-center" onClick={(e) => openModal(e)} role="button" href="/#">
         {modalActionNode}
       </a>
     </>
@@ -87,7 +92,7 @@ Modal.defaultProps = {
   dialogDescription: '',
   actionDone: false,
   maxWidth: false,
-  onConfirm: null,
+  onConfirm: undefined,
   modalActionNode: null,
 };
 

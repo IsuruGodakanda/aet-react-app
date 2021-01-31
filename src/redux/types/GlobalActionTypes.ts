@@ -8,4 +8,17 @@ export interface SetLoaderStatus {
   payload: boolean;
 }
 
-export type GlobalDispatchTypes = SetLoaderStatus;
+// Set Modal
+export const SET_OPEN_MODAL = 'SET_OPEN_MODAL';
+export const REMOVE_OPEN_MODAL = 'REMOVE_OPEN_MODAL';
+
+export interface SetOpenModal {
+  type: typeof SET_OPEN_MODAL;
+  payload: string;
+}
+
+export interface RemoveOpenModal {
+  type: typeof REMOVE_OPEN_MODAL;
+}
+
+export type GlobalDispatchTypes = SetLoaderStatus | SetOpenModal | RemoveOpenModal;
