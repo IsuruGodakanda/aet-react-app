@@ -20,18 +20,18 @@ const Switch: React.FC<IProps> = (props: IProps) => {
   return (
     <div className="">
       <div className="flex">
-        {label && (
-          <label htmlFor={id} className="w-1/4 text-right pt-1 mr-10 text-brand-primary-font-color">
-            {label}
-          </label>
-        )}
-        <div className="flex-grow w-3/4 pt-1">
+        {label && <span className="w-1/4 text-right pt-1 mr-10 text-brand-primary-font-color">{label}</span>}
+        <div className="flex w-3/4 pt-1">
+          {falseLabel && (
+            <div
+              className={`mr-2 font-medium cursor-default ${
+                !checked ? 'text-primaryBlue font-extrabold' : 'text-white'
+              }`}
+            >
+              {falseLabel}
+            </div>
+          )}
           <label htmlFor={id} className="flex items-center cursor-pointer">
-            {falseLabel && (
-              <div className={`mr-2 font-medium ${!checked ? 'text-primaryBlue font-extrabold' : 'text-white'}`}>
-                {falseLabel}
-              </div>
-            )}
             <div className="relative">
               <input
                 id={id}
@@ -48,12 +48,16 @@ const Switch: React.FC<IProps> = (props: IProps) => {
                 <div className="toggle__dot absolute w-4 h-4  bg-white rounded-full shadow" />
               </div>
             </div>
-            {trueLabel && (
-              <div className={`ml-2 font-medium ${checked ? 'text-primaryBlue font-extrabold' : 'text-white'}`}>
-                {trueLabel}
-              </div>
-            )}
           </label>
+          {trueLabel && (
+            <div
+              className={`ml-2 font-medium cursor-default ${
+                checked ? 'text-primaryBlue font-extrabold' : 'text-white'
+              }`}
+            >
+              {trueLabel}
+            </div>
+          )}
         </div>
       </div>
     </div>

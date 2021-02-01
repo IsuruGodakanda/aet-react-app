@@ -61,4 +61,5 @@ export const removeSession = (keyArray: string[]): void => {
 // Set session keys
 export enum SessionKey {
   AUTH_TOKEN = 'authToken',
+  LANG = 'lang',
 }

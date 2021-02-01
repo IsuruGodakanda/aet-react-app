@@ -1,3 +1,4 @@
+import { SessionKey, getSession } from 'Services/securityService';
 import {
   GlobalDispatchTypes,
   SET_LOADER_STATUS,
@@ -15,7 +16,7 @@ interface IDefaultState {
 const defaultState: IDefaultState = {
   loading: false,
   openModal: '',
-  lang: 'en',
+  lang: getSession(SessionKey.LANG) || 'en',
 };
 
 const globalReducer = (state: IDefaultState = defaultState, action: GlobalDispatchTypes): IDefaultState => {
