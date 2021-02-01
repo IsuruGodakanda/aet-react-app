@@ -14,6 +14,7 @@ module.exports = {
     'Actions/(.*)$': '<rootDir>/src/redux/actions/$1',
     'Animations/(.*)$': '<rootDir>/src/assets/animations/$1',
     'Components/(.*)$': '<rootDir>/src/components/$1',
+    'Data/(.*)$': '<rootDir>/src/assets/data/$1',
     'Images/(.*)$': '<rootDir>/src/assets/images/$1',
     'Pages/(.*)$': '<rootDir>/src/pages/$1',
     'Redux/(.*)$': '<rootDir>/src/redux/$1',

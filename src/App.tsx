@@ -1,9 +1,11 @@
 import ErrorBoundary from 'Components/error-boundary';
 import React from 'react';
-import { Provider } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { RootStore } from 'Redux/Store';
+import { IntlProvider } from 'react-intl';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import Store from './redux/Store';
+import formattedMessages from 'Data/FormattedMessage.json';
 
 interface IProps {
   children: React.ReactNode;
@@ -11,15 +13,18 @@ interface IProps {
 
 const App: React.FC<IProps> = (props: IProps) => {
   const { children } = props;
+  const globalStore = useSelector((state: RootStore) => state.global);
+
+  React.useEffect(() => {}, [globalStore.lang]);
 
   return (
-    <div className="flex flex-col h-screen justify-between">
-      <Provider store={Store}>
+    <IntlProvider messages={formattedMessages[globalStore.lang]} locale={globalStore.lang} defaultLocale="en">
+      <div className="flex flex-col h-screen justify-between">
         <Router>
           <ErrorBoundary>{children}</ErrorBoundary>
         </Router>
-      </Provider>
-    </div>
+      </div>
+    </IntlProvider>
   );
 };
 

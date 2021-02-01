@@ -1,0 +1,10 @@
+{
+  "en": {
+    "---DASHBOARD---": "DASHBOARD MESSAGED",
+    "dashboard.page.date": "Today is {ts, date, ::yyyyMMdd}"
+  },
+  "fr": {
+    "---DASHBOARD---": "DASHBOARD MESSAGED",
+    "dashboard.page.date": "Aujourd'hui, c'est le {ts, date, ::yyyyMMdd}"
+  }
+}

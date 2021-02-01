@@ -1,18 +1,30 @@
 import DropDown from 'Components/drop-down';
 import HamburgerMenu from 'Components/hamburger-menu';
+import Switch from 'Components/input-fields/switch';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { RootStore } from 'Redux/Store';
+import { setLanguage } from 'Actions/GlobalActions';
 import { PermissionHOC, UserRole } from 'Services/userRoleService';
 import { logo } from 'Utils/AssetUtil';
 
 const Header: React.FC = () => {
   const authStore = useSelector((state: RootStore) => state.auth);
+  const globalStore = useSelector((state: RootStore) => state.global);
+  const dispatch = useDispatch();
   const [open, setOpen] = React.useState(true);
 
   const onClickHandle = (): void => {
     setOpen(!open);
+  };
+
+  const onToggle = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    if (event.target.checked) {
+      dispatch(setLanguage('fr'));
+    } else {
+      dispatch(setLanguage('en'));
+    }
   };
 
   return (
@@ -29,6 +41,16 @@ const Header: React.FC = () => {
       </div>
       <nav className={`${open ? 'block' : 'hidden'} sm:block`}>
         <div className="px-2 pt-2 pb-4 sm:flex sm:p-0">
+          <div className="mr-10">
+            <Switch
+              id="change-lang"
+              name="change-lang"
+              trueLabel="FR"
+              falseLabel="EN"
+              onToggle={onToggle}
+              defaultValue={globalStore.lang === 'fr'}
+            />
+          </div>
           <NavLink
             strict
             to="/dashboard"

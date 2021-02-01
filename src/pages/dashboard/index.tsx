@@ -1,6 +1,7 @@
 import './index.css';
 
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import { Box, Grid } from '@material-ui/core';
 
@@ -12,6 +13,13 @@ const Dashboard: React.FC = () => {
           <Grid container direction="row">
             <Grid item xs={9}>
               <h1>YOUR ARE IN THE DASHBOARD</h1>
+              <p>
+                <FormattedMessage
+                  id="dashboard.page.date"
+                  defaultMessage="Today is {ts, date, ::yyyyMMdd}"
+                  values={{ ts: Date.now() }}
+                />
+              </p>
             </Grid>
           </Grid>
         </Box>

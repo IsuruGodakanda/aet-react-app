@@ -22,7 +22,6 @@ import TableHeaders from './headers';
 import Search from './search';
 
 interface IProps {
-  setLoader: (status: boolean) => void;
   data?: any;
   url?: string;
   queryParams?: any;
@@ -35,11 +34,11 @@ interface IProps {
   emptyRecordsMessage?: string;
   loadRecordsMessage?: string;
   createUpdateForm?: React.ReactNode;
+  setLoader: (status: boolean) => void;
 }
 
 const TableComponent: React.FC<IProps> = (props: IProps) => {
   const {
-    setLoader,
     data,
     url = '/',
     queryParams,
@@ -52,6 +51,7 @@ const TableComponent: React.FC<IProps> = (props: IProps) => {
     emptyRecordsMessage,
     loadRecordsMessage,
     createUpdateForm: CreateUpdateForm,
+    setLoader,
   } = props;
 
   const [computedData, setComputedData] = React.useState(data);
@@ -196,7 +196,10 @@ const TableComponent: React.FC<IProps> = (props: IProps) => {
                 columns={columns}
                 showEditColumn={showEditColumn}
                 showDeleteColumn={showDeleteColumn}
-                onSorting={(field, order) => setSorting({ field, order })}
+                onSorting={(field, order) => {
+                  setSorting({ field, order });
+                  setPage(0);
+                }}
               />
             </Table>
             <Table aria-label="simple table">
@@ -212,7 +215,10 @@ const TableComponent: React.FC<IProps> = (props: IProps) => {
                 columns={columns}
                 showEditColumn={showEditColumn}
                 showDeleteColumn={showDeleteColumn}
-                onSorting={(field, order) => setSorting({ field, order })}
+                onSorting={(field, order) => {
+                  setSorting({ field, order });
+                  setPage(0);
+                }}
               />
             </Table>
             <Table aria-label="simple table">
@@ -231,7 +237,10 @@ const TableComponent: React.FC<IProps> = (props: IProps) => {
               columns={columns}
               showEditColumn={showEditColumn}
               showDeleteColumn={showDeleteColumn}
-              onSorting={(field, order) => setSorting({ field, order })}
+              onSorting={(field, order) => {
+                setSorting({ field, order });
+                setPage(0);
+              }}
             />
             <TableBody>
               {fetchRows.map((row, rowIndex) => {

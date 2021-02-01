@@ -12,6 +12,13 @@
         "useESModules": false,
         "version": "7.0.0-beta.0"
       }
+    ],
+    [
+      "formatjs",
+      {
+        "idInterpolationPattern": "[sha512:contenthash:base64:6]",
+        "ast": true
+      }
     ]
   ]
 }

@@ -21,4 +21,12 @@ export interface RemoveOpenModal {
   type: typeof REMOVE_OPEN_MODAL;
 }
 
-export type GlobalDispatchTypes = SetLoaderStatus | SetOpenModal | RemoveOpenModal;
+// Set Language
+export const SET_SITE_LANG = 'SET_SITE_LANG';
+
+export interface SetSiteLanguage {
+  type: typeof SET_SITE_LANG;
+  payload: string;
+}
+
+export type GlobalDispatchTypes = SetLoaderStatus | SetOpenModal | RemoveOpenModal | SetSiteLanguage;

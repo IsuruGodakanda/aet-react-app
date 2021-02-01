@@ -1,13 +1,21 @@
-import { GlobalDispatchTypes, SET_LOADER_STATUS, SET_OPEN_MODAL, REMOVE_OPEN_MODAL } from '../types/GlobalActionTypes';
+import {
+  GlobalDispatchTypes,
+  SET_LOADER_STATUS,
+  SET_OPEN_MODAL,
+  REMOVE_OPEN_MODAL,
+  SET_SITE_LANG,
+} from '../types/GlobalActionTypes';
 
 interface IDefaultState {
   loading: boolean;
   openModal: string;
+  lang: string;
 }
 
 const defaultState: IDefaultState = {
   loading: false,
   openModal: '',
+  lang: 'en',
 };
 
 const globalReducer = (state: IDefaultState = defaultState, action: GlobalDispatchTypes): IDefaultState => {
@@ -26,6 +34,11 @@ const globalReducer = (state: IDefaultState = defaultState, action: GlobalDispat
       return {
         ...state,
         openModal: '',
+      };
+    case SET_SITE_LANG:
+      return {
+        ...state,
+        lang: action.payload,
       };
     default:
       return state;
