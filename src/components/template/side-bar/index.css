@@ -1,0 +1,57 @@
+.overlay {
+  display: none;
+}
+
+.side-bar:hover + .overlay {
+  display: block;
+}
+
+.submenu.bgdouble {
+  background: url(../../../assets/images/element-menu-path.svg) 30px -38px no-repeat,
+    url(../../../assets/images/element-menu-path.svg) 30px 10px no-repeat;
+  list-style: none;
+  height: 60px;
+  background-color: #fafafa;
+}
+.submenu.bgsingle {
+  background: url(../../../assets/images/element-menu-path.svg) 30px -38px no-repeat;
+  list-style: none;
+  height: 60px;
+  background-color: #fafafa;
+}
+.submenu.bgdouble:hover,
+.submenu.bgsingle:hover {
+  background-color: #ffffff;
+}
+.submenu .label {
+  font-family: 'Poppins SemiBold';
+  font-size: 12px;
+  text-transform: uppercase;
+}
+a {
+  font-family: 'Poppins Regular';
+  color: #263350;
+}
+.submenu a.active {
+  color: #3175f6;
+}
+
+.accordion-item {
+  display: none;
+}
+
+.side-bar:hover .accordion-item {
+  display: block;
+}
+
+.accordion-item {
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(1, 0, 1, 0);
+  height: auto;
+  max-height: 9999px;
+}
+
+.accordion-item.collapsed {
+  max-height: 0;
+  transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+}

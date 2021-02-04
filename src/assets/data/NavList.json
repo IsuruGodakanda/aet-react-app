@@ -1,0 +1,22 @@
+[
+  {
+    "navId": "dashboard",
+    "label": "Dashboard",
+    "icon": "fa-clipboard-check fa-lg",
+    "path": "/dashboard",
+    "subItems": []
+  },
+  {
+    "navId": "account",
+    "label": "My Account",
+    "icon": "fa-users-cog fa-lg",
+    "path": "",
+    "subItems": [
+      {
+        "subId": "profile",
+        "subLabel": "Profile",
+        "subPath": "/account/profile"
+      }
+    ]
+  }
+]

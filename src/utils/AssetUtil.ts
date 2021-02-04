@@ -4,6 +4,7 @@
 
 // ## Common ## //
 export { default as logo } from 'Images/logo.svg';
+export { default as logoHor } from 'Images/logo-hor.png';
 export { default as spinner } from 'Images/spinner.svg';
 
 // ## Footer ## //

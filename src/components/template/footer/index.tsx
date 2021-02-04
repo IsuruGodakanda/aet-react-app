@@ -4,7 +4,7 @@ import { fb, logoWhite, twitter } from 'Utils/AssetUtil';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-10 sm:py-10">
+    <footer className="bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-10 sm:py-10 sm:ml-20">
       <div className="text-center sm:text-left sm:flex-col px-4 py-3">
         <Link to="/">
           <img className="inline" src={logoWhite} alt="" />

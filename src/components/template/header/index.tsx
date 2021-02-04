@@ -7,7 +7,6 @@ import { Link, NavLink } from 'react-router-dom';
 import { RootStore } from 'Redux/Store';
 import { setLanguage } from 'Actions/GlobalActions';
 import { PermissionHOC, UserRole } from 'Services/userRoleService';
-import { logo } from 'Utils/AssetUtil';
 
 const Header: React.FC = () => {
   const authStore = useSelector((state: RootStore) => state.auth);
@@ -28,13 +27,8 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
+    <header className="bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 fixed w-full z-10">
       <div className="flex items-center justify-between px-4 py-3 sm:p-0">
-        <div>
-          <Link to="/">
-            <img className="h-8" src={logo} alt="" />
-          </Link>
-        </div>
         <div className="sm:hidden">
           <HamburgerMenu onToggle={onClickHandle} open={open} />
         </div>
@@ -54,8 +48,8 @@ const Header: React.FC = () => {
           <NavLink
             strict
             to="/dashboard"
-            className="mt-1 block px-2 py-1 text-white font-semibold rounded no-underline hover:bg-gray-800 sm:mt-0 sm:ml-2"
-            activeClassName="border-b-2 border-brand-primary-color"
+            className="mt-1 block px-2 py-1 text-white font-semibold rounded no-underline hover:bg-gray-800 sm:mt-0 sm:ml-2 font-primaryFont"
+            activeClassName="border-b-2 border-brand-primary-color font-primaryFont"
           >
             Dashboard
           </NavLink>
@@ -63,8 +57,8 @@ const Header: React.FC = () => {
             <NavLink
               strict
               to="/employee"
-              className="mt-1 block px-2 py-1 text-white font-semibold rounded no-underline hover:bg-gray-800 sm:mt-0 sm:ml-2"
-              activeClassName="border-b-2 border-brand-primary-color"
+              className="mt-1 block px-2 py-1 text-white font-semibold rounded no-underline hover:bg-gray-800 sm:mt-0 sm:ml-2 font-primaryFont"
+              activeClassName="border-b-2 border-brand-primary-color font-primaryFont"
             >
               Employees
             </NavLink>
