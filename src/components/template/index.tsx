@@ -18,7 +18,7 @@ const Template: React.FC<IProps> = (props: IProps) => {
       <Header />
       <SideBar />
       <div className="h-full relative">
-        <main className="main bg-brand-bg-color">{children}</main>
+        <main className="main">{children}</main>
       </div>
       <Footer />
     </div>

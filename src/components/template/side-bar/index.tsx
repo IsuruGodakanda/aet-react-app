@@ -30,7 +30,7 @@ const SideBar: React.FC = () => {
 
   const renderItemList = (): React.ReactNode => {
     const list = NavList.map(({ navId, label, icon, path, subItems }) => (
-      <li key={navId} className="leading-10 mb-12 w-full relative">
+      <li key={navId} className="leading-10 mb-4 w-full relative">
         {isEmpty(subItems) ? (
           <NavItem
             navId={navId}
@@ -75,7 +75,7 @@ const SideBar: React.FC = () => {
             </div>
 
             <div>
-              <ul className="list-none text-brand-nav-font-size flex-auto w-220px absolute pt-4">{renderItemList()}</ul>
+              <ul className="list-none flex-auto w-220px absolute pt-4">{renderItemList()}</ul>
             </div>
           </nav>
         </div>

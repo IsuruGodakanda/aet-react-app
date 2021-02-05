@@ -7,14 +7,14 @@
 }
 
 .submenu.bgdouble {
-  background: url(../../../assets/images/element-menu-path.svg) 30px -38px no-repeat,
-    url(../../../assets/images/element-menu-path.svg) 30px 10px no-repeat;
+  background: url(../../../assets/images/element-menu-path.svg) 38px -38px no-repeat,
+    url(../../../assets/images/element-menu-path.svg) 38px 10px no-repeat;
   list-style: none;
   height: 60px;
   background-color: #fafafa;
 }
 .submenu.bgsingle {
-  background: url(../../../assets/images/element-menu-path.svg) 30px -38px no-repeat;
+  background: url(../../../assets/images/element-menu-path.svg) 38px -38px no-repeat;
   list-style: none;
   height: 60px;
   background-color: #fafafa;
@@ -24,7 +24,6 @@
   background-color: #ffffff;
 }
 .submenu .label {
-  font-family: 'Poppins SemiBold';
   font-size: 12px;
   text-transform: uppercase;
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 interface IProps {
   navId: string;
@@ -23,17 +25,18 @@ const NavItem: React.FC<IProps> = (props: IProps) => {
         onActiveHandle(navId, false);
         onToggleHandle('');
       }}
-      className="no-underline relative text-brand-nav-font-size flex flex-row"
-      activeClassName="font-PoppinsBold border-r-2 border-brand-primary-color mr-2px"
+      className="no-underline relative flex flex-row font-primaryFont pb-3"
+      activeClassName="font-primaryFont font-bold border-r-2 border-primaryBlue mr-2px"
     >
       <div className="w-12 flex justify-center ml-4">
-        <i
-          className={`text-xl h-10 flex pt-3 ${
-            active === navId ? 'text-brand-primary-color fas' : 'text-brand-icon-color fal'
-          } ${icon}`}
+        <FontAwesomeIcon
+          icon={faUser}
+          size="sm"
+          key={icon}
+          className={`text-xl h-10 flex pt-3 ${active === navId ? 'text-primaryBlue' : 'text-gray-200'}`}
         />
       </div>
-      <span className="mt-0 ml-4">{` ${label}`}</span>
+      <span className="mt-4 ml-4">{` ${label}`}</span>
     </NavLink>
   );
 };

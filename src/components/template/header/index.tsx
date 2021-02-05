@@ -49,7 +49,7 @@ const Header: React.FC = () => {
             strict
             to="/dashboard"
             className="mt-1 block px-2 py-1 text-white font-semibold rounded no-underline hover:bg-gray-800 sm:mt-0 sm:ml-2 font-primaryFont"
-            activeClassName="border-b-2 border-brand-primary-color font-primaryFont"
+            activeClassName="border-b-2 font-primaryFont"
           >
             Dashboard
           </NavLink>
@@ -58,7 +58,7 @@ const Header: React.FC = () => {
               strict
               to="/employee"
               className="mt-1 block px-2 py-1 text-white font-semibold rounded no-underline hover:bg-gray-800 sm:mt-0 sm:ml-2 font-primaryFont"
-              activeClassName="border-b-2 border-brand-primary-color font-primaryFont"
+              activeClassName="border-b-2 font-primaryFont"
             >
               Employees
             </NavLink>

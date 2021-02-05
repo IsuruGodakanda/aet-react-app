@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 interface ISubItems {
   subId: string;
@@ -30,28 +32,29 @@ const SubMenuItem: React.FC<IProps> = (props: IProps) => {
         }}
         href="/#"
         className={`${
-          active === navId ? 'font-PoppinsBold border-r-2 border-brand-primary-color mr-2px' : 'font-PoppinsRegular'
-        } no-underline text-brand-primary-font-color relative text-brand-nav-font-size flex flex-row`}
+          active === navId ? 'font-primaryFont font-bold border-r-2 border-primaryBlue mr-2px' : 'font-primaryFont'
+        } no-underline text-gray-900 relative flex flex-row pb-3`}
       >
         <div className="w-12 flex justify-center ml-4">
-          <i
-            className={`text-xl h-10 flex pt-3 ${
-              active === navId ? 'text-brand-primary-color fas' : '`text-brand-icon-color fal'
-            } ${icon}`}
+          <FontAwesomeIcon
+            icon={faUser}
+            size="sm"
+            key={icon}
+            className={`text-xl h-10 flex pt-3 ${active === navId ? 'text-primaryBlue' : 'text-gray-200'}`}
           />
         </div>
-        <span className=" mt-0 ml-4">{` ${label}`}</span>
+        <span className=" mt-4 ml-4">{` ${label}`}</span>
       </a>
       <div>
         <ul
-          className={`p-0 list-none text-xs relative bg-brand-sub-menu-color shadow-brand-side-bar-shadow mt-5 -mb-5 ${
+          className={`p-0 list-none text-xs relative bg-gray-200 mb-5 ${
             toggle === navId ? 'hidden hover:h-auto group-hover:block' : 'h-0 hidden'
           }`}
         >
           {subItems.map(({ subId, subLabel, subPath }, index) => (
             <li
               key={subId}
-              className={`list-none leading-10 bg-brand-sub-menu-color submenu ${
+              className={`list-none leading-10 submenu border-r border-gray-900 ${
                 subItems.length === index + 1 ? 'bgsingle mb-14px' : 'bgdouble'
               } `}
             >
@@ -62,9 +65,9 @@ const SubMenuItem: React.FC<IProps> = (props: IProps) => {
                 onClick={() => {
                   onActiveHandle(navId, true);
                 }}
-                className="font-PoppinsRegular no-underline text-brand-primary-font-color text-brand-nav-font-size flex flex-row ml-12"
+                className="font-primaryFont no-underline text-gray-900 flex flex-row ml-12"
               >
-                <span className="mt-2 ml-8 label">{` ${subLabel}`}</span>
+                <span className="mt-4 ml-8 label font-primaryFont font-bold">{` ${subLabel}`}</span>
               </NavLink>
             </li>
           ))}

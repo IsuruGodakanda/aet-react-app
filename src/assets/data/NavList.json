@@ -7,15 +7,15 @@
     "subItems": []
   },
   {
-    "navId": "account",
-    "label": "My Account",
+    "navId": "employee",
+    "label": "Employee",
     "icon": "fa-users-cog fa-lg",
     "path": "",
     "subItems": [
       {
         "subId": "profile",
         "subLabel": "Profile",
-        "subPath": "/account/profile"
+        "subPath": "/employee/profile"
       }
     ]
   }

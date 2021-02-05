@@ -20,7 +20,7 @@ const Switch: React.FC<IProps> = (props: IProps) => {
   return (
     <div className="">
       <div className="flex">
-        {label && <span className="w-1/4 text-right pt-1 mr-10 text-brand-primary-font-color">{label}</span>}
+        {label && <span className="w-1/4 text-right pt-1 mr-10 text-gray-900">{label}</span>}
         <div className="flex w-3/4 pt-1">
           {falseLabel && (
             <div
