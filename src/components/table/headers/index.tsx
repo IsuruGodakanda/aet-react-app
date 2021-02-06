@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { faSortAmountDown, faSortAmountUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
@@ -39,14 +39,14 @@ const TableHeaders: React.FC<IProps> = (props: IProps) => {
     onSorting(field, order);
   };
 
-  const setIcon = (order) => {
+  const setIcon = (order: string): IconName => {
     if (order === 'ASC') {
-      return faSortAmountUp;
+      return 'sort-amount-up';
     }
     if (order === 'DESC') {
-      return faSortAmountDown;
+      return 'sort-amount-down';
     }
-    return faSortAmountUp;
+    return 'sort-amount-up';
   };
 
   return (
@@ -63,13 +63,17 @@ const TableHeaders: React.FC<IProps> = (props: IProps) => {
               >
                 {sortingField && sortingField === column.key ? (
                   <FontAwesomeIcon
-                    icon={setIcon(sortingOrder)}
+                    icon={['fas', setIcon(sortingOrder)]}
                     size="lg"
                     className={`text-base mr-1 ${sortingOrder === '' ? 'text-gray-600' : 'text-blue-600'}`}
                   />
                 ) : (
                   column.sortable && (
-                    <FontAwesomeIcon icon={faSortAmountUp} size="lg" className=" text-gray-600 text-base mr-2" />
+                    <FontAwesomeIcon
+                      icon={['fas', 'sort-amount-up']}
+                      size="lg"
+                      className=" text-gray-600 text-base mr-2"
+                    />
                   )
                 )}
                 {column.label}

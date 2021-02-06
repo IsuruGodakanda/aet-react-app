@@ -3,8 +3,8 @@ import '../index.css';
 import { isEmpty } from 'lodash-es';
 import React from 'react';
 
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
 import { FormControl, makeStyles, TextField } from '@material-ui/core';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
@@ -27,7 +27,7 @@ interface IProps {
   required?: boolean;
   disabled?: boolean;
   readOnly?: boolean;
-  icon?: IconDefinition;
+  icon?: [IconPrefix, IconName];
   iconPosition?: 'start' | 'end';
   className?: string;
   errorMsg?: string;

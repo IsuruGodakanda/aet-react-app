@@ -2,14 +2,14 @@
   {
     "navId": "dashboard",
     "label": "Dashboard",
-    "icon": "fa-clipboard-check fa-lg",
+    "icon": "list-alt",
     "path": "/dashboard",
     "subItems": []
   },
   {
     "navId": "employee",
     "label": "Employee",
-    "icon": "fa-users-cog fa-lg",
+    "icon": "user",
     "path": "",
     "subItems": [
       {

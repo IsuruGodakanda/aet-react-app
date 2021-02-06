@@ -1061,6 +1061,20 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.34"
 
+"@fortawesome/free-brands-svg-icons@^5.15.2":
+  version "5.15.2"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.15.2.tgz#d74e2540b5552b915d6bef719f17e361b70a8d65"
+  integrity sha512-YPlVjE1cEO+OJ9I9ay3TQ3I88+XkxMTYwnnddqAboxLhPNGncsHV0DjWOVLCyuAY66yPfyndWwVn4v7vuqsO1g==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.34"
+
+"@fortawesome/free-regular-svg-icons@^5.15.2":
+  version "5.15.2"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-5.15.2.tgz#61eeb8c206e792c530eaa58279cc32c55332fe8f"
+  integrity sha512-Uv5NQCYjyisNVTu/1Xjs+z8vwQjbfT6hiqYvQNfF0n8qdgfWLM581bAfVMQ3BCs1SPy+eEUKNcGkK4n0FihFHg==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.34"
+
 "@fortawesome/free-solid-svg-icons@5.15.2":
   version "5.15.2"
   resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.15.2.tgz#25bb035de57cf85aee8072965732368ccc8e8943"
@@ -2591,7 +2605,7 @@ babel-plugin-dynamic-import-node@^2.3.3:
   dependencies:
     object.assign "^4.1.0"
 
-babel-plugin-formatjs@^9.0.4:
+babel-plugin-formatjs@9.0.4:
   version "9.0.4"
   resolved "https://registry.yarnpkg.com/babel-plugin-formatjs/-/babel-plugin-formatjs-9.0.4.tgz#1ec5c300ad98ad7fe497115b1edacb802dcbbc89"
   integrity sha512-snvOaK+dp/1BRd92966Z2kGF/nm8KYnBtLbgiHwDvewPJ5Fd0IqiEXmEap4sH4rI89v1P0AMfYsPneloFwMOsg==
@@ -8757,7 +8771,7 @@ react-dom@17.0.1:
     object-assign "^4.1.1"
     scheduler "^0.20.1"
 
-react-intl@^5.11.0:
+react-intl@5.11.0:
   version "5.11.0"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-5.11.0.tgz#1606941ec402b9b566e6191f5ddb3efea967b31b"
   integrity sha512-1ZOlKdRD1yKcm+TuuGpHrp7dGRrQeozH7n4/i5r8c6RM74ByO00bBAS1Ut4hJJcCqbMa7AqLD69kFe6Y7j46RA==

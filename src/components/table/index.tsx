@@ -8,7 +8,6 @@ import { toast } from 'react-toastify';
 import { deleteTableRecordById, getTableData } from 'Services/api';
 import { camelCaseToNormalString } from 'Utils/commonUtil';
 
-import { faEye, faTimesCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Grid, TablePagination } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
@@ -148,7 +147,7 @@ const TableComponent: React.FC<IProps> = (props: IProps) => {
   const AddButton: React.FC = () => (
     <FontAwesomeIcon
       id="viewModal"
-      icon={faUserPlus}
+      icon={['fas', 'user-plus']}
       size="lg"
       className="iconTheme ml-1 mr-4"
       title="View more detail"
@@ -156,11 +155,17 @@ const TableComponent: React.FC<IProps> = (props: IProps) => {
   );
 
   const UpdateButton: React.FC = () => (
-    <FontAwesomeIcon id="viewModal" icon={faEye} size="lg" className="iconTheme ml-1" title="View more detail" />
+    <FontAwesomeIcon
+      id="viewModal"
+      icon={['fas', 'eye']}
+      size="lg"
+      className="iconTheme ml-1"
+      title="View more detail"
+    />
   );
 
   const DeleteButton: React.FC = () => (
-    <FontAwesomeIcon icon={faTimesCircle} size="lg" id="deleteIcon" className="ml-1" />
+    <FontAwesomeIcon icon={['fas', 'times-circle']} size="lg" id="deleteIcon" className="ml-1" />
   );
 
   return (

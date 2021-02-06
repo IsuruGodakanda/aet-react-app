@@ -3,8 +3,6 @@ import './index.css';
 import Text from 'Components/input-fields/text';
 import React, { useState } from 'react';
 
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-
 interface IProps {
   onSearch: (value: string) => void;
 }
@@ -25,7 +23,7 @@ const Search: React.FC<IProps> = (props: IProps) => {
       label="Search by name"
       value={search}
       onChange={(e) => onInputChange(e.target.value)}
-      icon={faSearch}
+      icon={['fas', 'search']}
       className="bg-white"
     />
   );

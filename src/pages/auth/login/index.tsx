@@ -113,7 +113,7 @@ const Login: React.FC = () => {
                         type="text"
                         value={email}
                         label="Email"
-                        icon={faUserCircle}
+                        icon={['fas', 'user-circle']}
                         onChange={handleChange}
                         validateField={validateForm}
                         className="w-320px"
@@ -129,7 +129,7 @@ const Login: React.FC = () => {
                         type="password"
                         value={password}
                         label="Password"
-                        icon={faFingerprint}
+                        icon={['fas', 'fingerprint']}
                         onChange={handleChange}
                         validateField={validateForm}
                         className="w-320px"

@@ -1,13 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
 
 interface IProps {
   navId: string;
   path: string;
   active: string;
-  icon: string;
+  icon: IconName;
   label: string;
   onActiveHandle: (id: string, isSubMenuItem: boolean) => void;
   onToggleHandle: (id: string) => void;
@@ -30,7 +30,7 @@ const NavItem: React.FC<IProps> = (props: IProps) => {
     >
       <div className="w-12 flex justify-center ml-4">
         <FontAwesomeIcon
-          icon={faUser}
+          icon={[active === navId ? 'fas' : 'far', icon]}
           size="sm"
           key={icon}
           className={`text-xl h-10 flex pt-3 ${active === navId ? 'text-primaryBlue' : 'text-gray-200'}`}
