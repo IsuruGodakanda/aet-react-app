@@ -4,7 +4,6 @@ import { setLoaderStatus } from 'Actions/GlobalActions';
 import Table from 'Components/table';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import LoaderHOC from 'Services/loaderService';
 
 import { Box, Grid } from '@material-ui/core';
 
@@ -56,4 +55,4 @@ const Employee: React.FC = () => {
   );
 };
 
-export default LoaderHOC(Employee);
+export default Employee;

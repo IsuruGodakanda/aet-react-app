@@ -4,16 +4,13 @@ import { useSelector } from 'react-redux';
 import { RootStore } from 'Redux/Store';
 import { IntlProvider } from 'react-intl';
 import { BrowserRouter as Router } from 'react-router-dom';
+import LoaderHistoryHOC from 'Services/loaderHistoryService';
 import { SessionKey, setSession } from 'Services/securityService';
 
 import formattedMessages from 'Data/FormattedMessage.json';
+import Routes from './routes';
 
-interface IProps {
-  children: React.ReactNode;
-}
-
-const App: React.FC<IProps> = (props: IProps) => {
-  const { children } = props;
+const App: React.FC = () => {
   const globalStore = useSelector((state: RootStore) => state.global);
 
   React.useEffect(() => {
@@ -24,11 +21,13 @@ const App: React.FC<IProps> = (props: IProps) => {
     <IntlProvider messages={formattedMessages[globalStore.lang]} locale={globalStore.lang} defaultLocale="en">
       <div className="flex flex-col h-screen justify-between">
         <Router>
-          <ErrorBoundary>{children}</ErrorBoundary>
+          <ErrorBoundary>
+            <Routes />
+          </ErrorBoundary>
         </Router>
       </div>
     </IntlProvider>
   );
 };
 
-export default App;
+export default LoaderHistoryHOC(App);

@@ -6,11 +6,9 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { login } from 'Services/api';
-import LoaderHOC from 'Services/loaderService';
 import { SessionKey, setSession } from 'Services/securityService';
 import { logo } from 'Utils/AssetUtil';
 
-import { faFingerprint, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Card, Container, CssBaseline, Grid, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -177,4 +175,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default LoaderHOC(Login);
+export default Login;
