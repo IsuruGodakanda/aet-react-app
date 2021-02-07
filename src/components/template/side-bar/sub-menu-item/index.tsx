@@ -3,19 +3,13 @@ import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 
-interface ISubItems {
-  subId: string;
-  subLabel: string;
-  subPath: string;
-}
-
 interface IProps {
   navId: string;
   toggle: string;
   active: string;
   icon: IconName;
   label: string;
-  subItems: ISubItems[];
+  subItems: ISubItem[];
   onActiveHandle: (id: string, isSubMenuItem: boolean) => void;
   onToggleHandle: (id: string) => void;
 }
@@ -51,7 +45,7 @@ const SubMenuItem: React.FC<IProps> = (props: IProps) => {
             toggle === navId ? 'hidden hover:h-auto group-hover:block' : 'h-0 hidden'
           }`}
         >
-          {subItems.map(({ subId, subLabel, subPath }, index) => (
+          {subItems.map(({ subId, subLabel, subPath }: ISubItem, index) => (
             <li
               key={subId}
               className={`list-none leading-10 submenu border-r border-gray-900 ${

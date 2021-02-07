@@ -29,7 +29,7 @@ const SideBar: React.FC = () => {
   };
 
   const renderItemList = (): React.ReactNode => {
-    const list = NavList.map(({ navId, label, icon, path, subItems }) => (
+    const list = NavList.map(({ navId, label, icon, path, subItems }: INavItem) => (
       <li key={navId} className="leading-10 mb-4 w-full relative">
         {isEmpty(subItems) ? (
           <NavItem
