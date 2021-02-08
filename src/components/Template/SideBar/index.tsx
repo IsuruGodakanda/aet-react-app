@@ -84,7 +84,6 @@ const SideBar: React.FC = () => {
             </div>
           </nav>
         </div>
-        {/* <div className="bg-gray-900 py-10" /> */}
       </aside>
       <div className="overlay fixed inset-0 z-40 bg-black opacity-40 w-full" />
     </div>

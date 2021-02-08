@@ -34,7 +34,7 @@ const NavItem: React.FC<IProps> = (props: IProps) => {
           icon={[active === navId ? 'fas' : 'far', icon]}
           size="sm"
           key={icon}
-          className={`text-xl h-10 flex pt-3 ${active === navId ? 'text-primaryBlue' : 'text-gray-200'}`}
+          className={`text-xl h-10 flex pt-3 ${active === navId ? 'text-primaryBlue' : 'text-greyDarkest'}`}
         />
       </div>
       <span className="mt-4 ml-4">{` ${label}`}</span>
