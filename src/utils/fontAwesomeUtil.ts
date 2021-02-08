@@ -1,18 +1,17 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { faListAlt as farListAlt, faUser as farUser } from '@fortawesome/free-regular-svg-icons';
 import {
   faEye as fasEye,
-  faTimesCircle as fasTimesCircle,
-  faUserPlus as fasUserPlus,
+  faFingerprint as fasFingerprint,
+  faListAlt as fasListAlt,
+  faSearch as fasSearch,
   faSortAmountDown as fasSortAmountDown,
   faSortAmountUp as fasSortAmountUp,
-  faUserCircle as fasUserCircle,
-  faFingerprint as fasFingerprint,
-  faSearch as fasSearch,
+  faTimesCircle as fasTimesCircle,
   faUser as fasUser,
-  faListAlt as fasListAlt,
+  faUserCircle as fasUserCircle,
+  faUserPlus as fasUserPlus,
 } from '@fortawesome/free-solid-svg-icons';
-
-import { faUser as farUser, faListAlt as farListAlt } from '@fortawesome/free-regular-svg-icons';
 
 library.add(
   fasEye,

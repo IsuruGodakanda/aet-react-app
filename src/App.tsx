@@ -1,13 +1,13 @@
-import ErrorBoundary from 'Components/error-boundary';
+import ErrorBoundary from 'Components/ErrorBoundary';
+import formattedMessages from 'Data/formatted-message.json';
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootStore } from 'Redux/Store';
 import { IntlProvider } from 'react-intl';
+import { useSelector } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { RootStore } from 'Redux/Store';
 import LoaderHistoryHOC from 'Services/loaderHistoryService';
 import { SessionKey, setSession } from 'Services/securityService';
 
-import formattedMessages from 'Data/FormattedMessage.json';
 import Routes from './routes';
 
 const App: React.FC = () => {

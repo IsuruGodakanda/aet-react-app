@@ -1,5 +1,5 @@
 import { validateJWT } from 'Actions/AuthActions';
-import Template from 'Components/template';
+import Template from 'Components/Template';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Redirect, Route, RouteProps } from 'react-router-dom';

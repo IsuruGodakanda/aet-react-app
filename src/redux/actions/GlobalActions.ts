@@ -2,9 +2,9 @@ import { Dispatch } from 'redux';
 
 import {
   GlobalDispatchTypes,
+  REMOVE_OPEN_MODAL,
   SET_LOADER_STATUS,
   SET_OPEN_MODAL,
-  REMOVE_OPEN_MODAL,
   SET_SITE_LANG,
 } from '../types/GlobalActionTypes';
 

@@ -1,14 +1,14 @@
-import Loader from 'Components/loader';
+import Loader from 'Components/Loader';
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import RouteHandleHOC from './routeHandleHOC';
 
-const Login = lazy(() => import('Pages/auth/login'));
-const Dashboard = lazy(() => import('Pages/dashboard'));
-const Employee = lazy(() => import('Pages/employee'));
-const Profile = lazy(() => import('Pages/employee/profile'));
-const NotFound = lazy(() => import('Pages/not-found'));
+const Login = lazy(() => import('Pages/Auth/Login'));
+const Dashboard = lazy(() => import('Pages/Dashboard'));
+const Employee = lazy(() => import('Pages/Employee'));
+const Profile = lazy(() => import('Pages/Employee/Profile'));
+const NotFound = lazy(() => import('Pages/NotFound'));
 
 const Routes: React.FC = () => {
   return (
