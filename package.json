@@ -13,13 +13,14 @@
     "serve": "rm -rf build && yarn build && serve build/dist",
     "serve-staging": "rm -rf build && yarn build-staging && serve build/dist",
     "serve-prod": "rm -rf build && yarn build-prod && serve build/dist",
-    "restart": "npm reboot; npm start",
-    "reboot": "rm -rf node_modules; npm install",
+    "restart": "yarn reboot; yarn start",
+    "reboot": "rm -rf node_modules; yarn install",
     "deploy": "rm -rf build && yarn build && aws s3 sync build/dist/ s3://BUCKET_NAME --acl public-read",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "test": "jest",
     "test-watch": "jest --watch",
-    "clean": "rm -rf build coverage .nyc_output"
+    "clean": "rm -rf build coverage .nyc_output",
+    "clean-node": "rm -rf node_modules"
   },
   "repository": "https://github.com/IsuruGodakanda/aet-react-app",
   "author": "Aeturnum-Isuru-Godakanda",
