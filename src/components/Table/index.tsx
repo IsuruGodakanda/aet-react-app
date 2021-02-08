@@ -32,7 +32,7 @@ interface IProps {
   serverSidePagination?: boolean;
   emptyRecordsMessage?: string;
   loadRecordsMessage?: string;
-  createUpdateForm?: React.ReactNode;
+  createUpdateForm: React.ComponentType<any>;
   setLoader: (status: boolean) => void;
 }
 
@@ -315,7 +315,6 @@ TableComponent.defaultProps = {
   serverSidePagination: true,
   emptyRecordsMessage: 'No data available at this time',
   loadRecordsMessage: 'Table loading...',
-  createUpdateForm: undefined,
 };
 
 export default TableComponent;
