@@ -63,6 +63,12 @@ const SideBar: React.FC = () => {
     renderItemList();
   }, [active]);
 
+  React.useEffect(() => {
+    if (history.location.pathname.split('/')[1] !== active) {
+      setActive(history.location.pathname.split('/')[1]);
+    }
+  });
+
   return (
     <div className="sm:block hidden">
       <aside className="group side-bar bg-white fixed inset-y-0 left-0 h-full w-20 hover:w-220px overflow-y-auto overflow-x-hidden duration-200 opacity-100 z-50 block cursor-pointer">
