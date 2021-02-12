@@ -9,7 +9,8 @@ const HeaderToggle: React.FC = () => {
 
   const [open, setOpen] = React.useState(false);
 
-  const onClickHandle = (): void => {
+  const onClickHandle = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
+    event.preventDefault();
     setOpen(!open);
   };
 
@@ -36,7 +37,7 @@ const HeaderToggle: React.FC = () => {
       <button
         type="button"
         className="relative z-20 block h-8 w-8 rounded-full overflow-hidden border-2 border-gray-600 focus:outline-none focus:border-white"
-        onClick={onClickHandle}
+        onClick={(e) => onClickHandle(e)}
       >
         <img className="h-full w-full object-cover" src={authStore.authUser?.avatar} alt="Your avatar" />
       </button>
@@ -44,7 +45,7 @@ const HeaderToggle: React.FC = () => {
         type="button"
         aria-label="Click outside"
         tabIndex={-1}
-        onClick={(): void => setOpen(false)}
+        onClick={(e) => onClickHandle(e)}
         className={`${open ? 'block' : 'hidden'} fixed inset-0 h-full w-full bg-black opacity-50 cursor-default z-20`}
       />
       <div

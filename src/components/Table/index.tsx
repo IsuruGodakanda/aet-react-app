@@ -209,7 +209,9 @@ const TableComponent: React.FC<IProps> = (props: IProps) => {
             </Table>
             <Table aria-label="simple table">
               <TableBody>
-                <TableRow>{emptyRecordsMessage}</TableRow>
+                <TableRow key="empty-record">
+                  <TableCell align="center">{emptyRecordsMessage}</TableCell>
+                </TableRow>
               </TableBody>
             </Table>
           </>
@@ -228,10 +230,12 @@ const TableComponent: React.FC<IProps> = (props: IProps) => {
             </Table>
             <Table aria-label="simple table">
               <TableBody>
-                <TableRow>
-                  <div style={{ padding: '100px', color: '#000000', width: '100%', textAlign: 'center' }}>
-                    {loadRecordsMessage}
-                  </div>
+                <TableRow key="load-record">
+                  <TableCell align="center">
+                    <div style={{ padding: '100px', color: '#000000', width: '100%', textAlign: 'center' }}>
+                      {loadRecordsMessage}
+                    </div>
+                  </TableCell>
                 </TableRow>
               </TableBody>
             </Table>

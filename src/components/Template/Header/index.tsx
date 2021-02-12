@@ -53,7 +53,7 @@ const Header: React.FC = () => {
           >
             Dashboard
           </NavLink>
-          <PermissionHOC roles={[UserRole.MANAGER]}>
+          <PermissionHOC id="employees-nav-link" roles={[UserRole.MANAGER]}>
             <NavLink
               strict
               to="/employee"

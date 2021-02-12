@@ -20,8 +20,8 @@ export const validateUserRole = (path: string | string[] | undefined): boolean =
 
 // Show hide component according to permission
 const permission = (ComposedComponent) => {
-  const ShowHideComponent = (props: { roles: string[]; children: React.ReactNode }) => {
-    const { roles } = props;
+  const ShowHideComponent = (props: { id: string; roles: string[]; children: React.ReactNode }) => {
+    const { id, roles } = props;
     const token = getSession(SessionKey.AUTH_TOKEN);
     const [hideable, setHideable] = React.useState(false);
 
@@ -39,4 +39,4 @@ const permission = (ComposedComponent) => {
   return ShowHideComponent;
 };
 
-export const PermissionHOC = permission(React.Fragment);
+export const PermissionHOC = permission(React.Profiler);
