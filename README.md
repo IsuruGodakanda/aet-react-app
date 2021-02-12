@@ -60,13 +60,13 @@ After that install below dependencies.
 
 ```sh
 
-$ yarn add typescript --dev
-$ yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --dev
-$ yarn add eslint-plugin-react --dev
-$ yarn add prettier eslint-config-prettier eslint-plugin-prettier --dev
-$ yarn add eslint-plugin-html --dev
-$ yarn add eslint-config-airbnb-typescript eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react-hooks
-$ yarn add husky lint-staged stylelint-config-recommended --dev
+yarn add typescript --dev
+yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --dev
+yarn add eslint-plugin-react --dev
+yarn add prettier eslint-config-prettier eslint-plugin-prettier --dev
+yarn add eslint-plugin-html --dev
+yarn add eslint-config-airbnb-typescript eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react-hooks
+yarn add husky lint-staged stylelint-config-recommended --dev
 
 ```
 
@@ -74,15 +74,15 @@ $ yarn add husky lint-staged stylelint-config-recommended --dev
 
 ```sh
 
-$ mkdir aet-react-boilerplate
-$ cd react-modern-app
-$ yarn init
-$ yarn add @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript @babel/plugin-proposal-class-properties @babel/plugin-transform-runtime --dev
-$ yarn add webpack-cli webpack-dev-server babel-loader --dev
-$ yarn add style-loader css-loader postcss-loader --dev
-$ yarn add html-loader file-loader @types/file-loader source-map-loader --dev
-$ yarn add babel-plugin-formatjs --dev
-$ yarn add babel-plugin-lodash --dev
+mkdir aet-react-boilerplate
+cd react-modern-app
+yarn init
+yarn add @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript @babel/plugin-proposal-class-properties @babel/plugin-transform-runtime --dev
+yarn add webpack-cli webpack-dev-server babel-loader --dev
+yarn add style-loader css-loader postcss-loader --dev
+yarn add html-loader file-loader @types/file-loader source-map-loader --dev
+yarn add babel-plugin-formatjs --dev
+yarn add babel-plugin-lodash --dev
 
 ```
 
@@ -90,26 +90,26 @@ $ yarn add babel-plugin-lodash --dev
 
 ```sh
 
-$ yarn add react react-dom @types/react @types/react-dom
-$ yarn webpack clean-webpack-plugin copy-webpack-plugin html-webpack-plugin mini-css-extract-plugin optimize-css-assets-webpack-plugin terser-webpack-plugin
-$ yarn add dotenv dotenv-webpack
-$ yarn add @types/node
-$ yarn add react-router-dom @types/react-router-dom
-$ yarn add redux react-redux redux-devtools-extension redux-thunk @types/react-redux
-$ yarn add axios
-$ yarn @material-ui/core @material-ui/lab
-$ yarn @fortawesome/react-fontawesome @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons
-$ yarn add lodash-es @types/lodash-es
-$ yarn add tailwindcss @tailwindcss/postcss7-compat postcss autoprefixer @fullhuman/postcss-purgecss
-$ yarn add crypto-js @types/crypto-js
-$ yarn add jwt-decode
-$ yarn add moment
-$ yarn add react-intl
-$ yarn add validator @types/validator
-$ yarn add jest jest-enzyme enzyme enzyme-adapter-react-16 enzyme-to-json identity-obj-proxy react-test-renderer ts-jest @types/jest @types/enzyme
-$ yarn add react-select @types/react-select
-$ yarn add react-toastify
-$ yarn add serve
+yarn add react react-dom @types/react @types/react-dom
+yarn webpack clean-webpack-plugin copy-webpack-plugin html-webpack-plugin mini-css-extract-plugin optimize-css-assets-webpack-plugin terser-webpack-plugin
+yarn add dotenv dotenv-webpack
+yarn add @types/node
+yarn add react-router-dom @types/react-router-dom
+yarn add redux react-redux redux-devtools-extension redux-thunk @types/react-redux
+yarn add axios
+yarn @material-ui/core @material-ui/lab
+yarn @fortawesome/react-fontawesome @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons
+yarn add lodash-es @types/lodash-es
+yarn add tailwindcss @tailwindcss/postcss7-compat postcss autoprefixer @fullhuman/postcss-purgecss
+yarn add crypto-js @types/crypto-js
+yarn add jwt-decode
+yarn add moment
+yarn add react-intl
+yarn add validator @types/validator
+yarn add jest jest-enzyme enzyme enzyme-adapter-react-16 enzyme-to-json identity-obj-proxy react-test-renderer ts-jest @types/jest @types/enzyme
+yarn add react-select @types/react-select
+yarn add react-toastify
+yarn add serve
 
 ```
 
