@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         primaryFont: ['Montserrat'],
         secondaryFont: ['Roboto'],
+        poppinsItalic: ['Poppins Italic'],
       },
       colors: {
         primaryBlue: '#036686',

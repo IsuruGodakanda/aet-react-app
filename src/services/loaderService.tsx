@@ -3,10 +3,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootStore } from 'Redux/Store';
 
-const LoaderHistoryService = <P extends Record<string, unknown>>(
-  ComposedComponent: React.ComponentType<P>
-): React.FC<P> => {
-  const LoaderHistoryComponent = ({ ...props }) => {
+const LoaderService = <P extends Record<string, unknown>>(ComposedComponent: React.ComponentType<P>): React.FC<P> => {
+  const LoaderComponent = ({ ...props }) => {
     const globalStore = useSelector((state: RootStore) => state.global);
 
     return (
@@ -17,7 +15,7 @@ const LoaderHistoryService = <P extends Record<string, unknown>>(
     );
   };
 
-  return LoaderHistoryComponent;
+  return LoaderComponent;
 };
 
-export default LoaderHistoryService;
+export default LoaderService;

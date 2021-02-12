@@ -8,6 +8,13 @@
 
 /* Brand Styles */
 @layer base {
+  @font-face {
+    font-family: 'Poppins Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Poppins Italic'), url('./assets/fonts/Poppins-Italic.woff') format('woff');
+  }
+
   body {
     margin: 0;
     font-family: 'CircularBook', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',

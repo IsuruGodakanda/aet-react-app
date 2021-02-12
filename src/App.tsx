@@ -5,7 +5,7 @@ import { IntlProvider } from 'react-intl';
 import { useSelector } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { RootStore } from 'Redux/Store';
-import LoaderHistoryHOC from 'Services/loaderHistoryService';
+import LoaderHOC from 'Services/loaderService';
 import { SessionKey, setSession } from 'Services/securityService';
 
 import Routes from './routes';
@@ -30,4 +30,4 @@ const App: React.FC = () => {
   );
 };
 
-export default LoaderHistoryHOC(App);
+export default LoaderHOC(App);
