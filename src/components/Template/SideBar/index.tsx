@@ -70,7 +70,7 @@ const SideBar: React.FC = () => {
 
   return (
     <div className="sm:block hidden">
-      <aside className="group side-bar bg-white fixed inset-y-0 left-0 h-full w-20 hover:w-220px overflow-y-auto overflow-x-hidden duration-200 opacity-100 z-50 block cursor-pointer">
+      <aside className="group side-bar bg-white fixed inset-y-0 left-0 h-full w-20 hover:w-220px overflow-y-auto overflow-x-hidden duration-200 opacity-100 z-20 block cursor-pointer">
         <div className="flex flex-col h-full z-30 w-full bg-white border-r border-gray-900">
           <nav>
             <div className="bg-gray-900 py-3 border-b-2 border-gray-900">
@@ -85,7 +85,7 @@ const SideBar: React.FC = () => {
           </nav>
         </div>
       </aside>
-      <div className="overlay fixed inset-0 z-40 bg-black opacity-40 w-full" />
+      <div className="overlay fixed inset-0 z-10 bg-black opacity-40 w-full" />
     </div>
   );
 };

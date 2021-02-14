@@ -36,7 +36,7 @@ const HeaderToggle: React.FC = () => {
     <div className="relative hidden sm:block sm:ml-6">
       <button
         type="button"
-        className="relative z-20 block h-8 w-8 rounded-full overflow-hidden border-2 border-gray-600 focus:outline-none focus:border-white"
+        className="relative z-30 block h-8 w-8 rounded-full overflow-hidden border-2 border-gray-600 focus:outline-none focus:border-white"
         onClick={(e) => onClickHandle(e)}
       >
         <img className="h-full w-full object-cover" src={authStore.authUser?.avatar} alt="Your avatar" />
@@ -46,10 +46,10 @@ const HeaderToggle: React.FC = () => {
         aria-label="Click outside"
         tabIndex={-1}
         onClick={(e) => onClickHandle(e)}
-        className={`${open ? 'block' : 'hidden'} fixed inset-0 h-full w-full bg-black opacity-50 cursor-default z-20`}
+        className={`${open ? 'block' : 'hidden'} fixed inset-0 h-full w-full bg-black opacity-50 cursor-default z-30`}
       />
       <div
-        className={`${open ? 'block' : 'hidden'} absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl z-20`}
+        className={`${open ? 'block' : 'hidden'} absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl z-30`}
       >
         <Link to="/#" className="block px-4 py-2 text-gray-800 hover:bg-indigo-500 no-underline hover:text-white">
           Account settings
