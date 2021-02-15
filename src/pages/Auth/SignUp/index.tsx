@@ -5,7 +5,7 @@ import Text from 'Components/InputFields/Text';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import { login } from 'Services/api';
+import { signUp } from 'Services/api';
 import { SessionKey, setSession } from 'Services/securityService';
 import { logo } from 'Utils/assetUtil';
 
@@ -33,20 +33,18 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Login: React.FC = () => {
+const SignUp: React.FC = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const classes = useStyles({});
 
-  const [formData, setFormData] = React.useState<ILoginDTO>({
+  const [formData, setFormData] = React.useState<ISignUpDTO>({
     email: '',
-    password: '',
   });
-  const { email, password } = formData;
+  const { email } = formData;
 
-  const [errors] = React.useState<ILoginDTO>({
+  const [errors] = React.useState<ISignUpDTO>({
     email: '',
-    password: '',
   });
 
   const [disabledForm, setDisabledForm] = React.useState<boolean>(true);
@@ -65,7 +63,7 @@ const Login: React.FC = () => {
     event.preventDefault();
     setLoader(true);
 
-    login(formData)
+    signUp(formData)
       .then((res) => {
         const authToken = res.token;
         setSession({ [SessionKey.AUTH_TOKEN]: authToken });
@@ -73,9 +71,9 @@ const Login: React.FC = () => {
         setLoader(false);
         history.push('/dashboard');
       })
-      .catch(() => {
+      .catch((err) => {
         setLoader(false);
-        setServerError('Invalid Credentials');
+        setServerError('Account already exists.');
       });
   };
 
@@ -119,28 +117,9 @@ const Login: React.FC = () => {
                         required
                       />
                     </Grid>
-
-                    <Grid item xs={12}>
-                      <Text
-                        id="password"
-                        name="password"
-                        type="password"
-                        value={password}
-                        label="Password"
-                        icon={['fas', 'fingerprint']}
-                        onChange={handleChange}
-                        validateField={validateForm}
-                        className="w-320px"
-                        errorMsg={errors.password}
-                        required
-                      />
-                    </Grid>
                     <Grid item xs={12}>
                       <div>
-                        <Link to="forgotpassword">Forgot password?</Link>
-                      </div>
-                      <div>
-                        Don't have an account? <Link to="signup">Sign Up</Link>
+                        Do have an account? <Link to="/">Log In</Link>
                       </div>
                     </Grid>
                   </Grid>
@@ -157,9 +136,9 @@ const Login: React.FC = () => {
                     <Grid item xs={12}>
                       <Paper className={classes.paper} elevation={0}>
                         <Button
-                          id="signIn"
+                          id="signUn"
                           type="submit"
-                          value="Log In"
+                          value="Sign Up"
                           onClick={onSubmit}
                           disabled={disabledForm}
                           className="w-320px h-60px focus:outline-none"
@@ -180,4 +159,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default SignUp;

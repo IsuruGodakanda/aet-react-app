@@ -9,6 +9,11 @@ export const login = async (payload: ILoginDTO): Promise<any> => {
   return baseAPIService('POST', authURL, payload);
 };
 
+export const signUp = async (payload: ISignUpDTO): Promise<any> => {
+  const dataUrl = `${authURL}/register`;
+  return baseAPIService('POST', dataUrl, payload);
+};
+
 export const addEmployee = async (payload: IEmployeeObj): Promise<any> => {
   return baseAPIService('POST', usersURL, payload);
 };
