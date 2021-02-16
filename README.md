@@ -268,3 +268,44 @@ yarn add serve
 ┣ 📜tailwind.config.js `(All tailwindcss configurations are in here.)` <br />
 ┣ 📜tsconfig.json `(All typescript configurations are in here.)` <br />
 ┣ 📜webpack.config.js `(All webpack configurations are in here.)` <br />
+
+## Screenshots
+
+**Login Page**
+![](src/assets/images/screenshots/01-login.png)
+
+**EN Admin Dashboard**
+![](src/assets/images/screenshots/02-en-admin-dashboard.png)
+
+**FR Admin Dashboard**
+![](src/assets/images/screenshots/03-fr-admin-dashboard.png)
+
+**Member Dashboard**
+![](src/assets/images/screenshots/04-member-dashboard.png)
+
+**Sorted Data Table**
+![](src/assets/images/screenshots/05-sorted-data-table.png)
+
+**User Account Toggl**
+![](src/assets/images/screenshots/06-user-account-toggle.png)
+
+**Add User Modal**
+![](src/assets/images/screenshots/07-add-user-modal.png)
+
+**Edit User Modal**
+![](src/assets/images/screenshots/08-edit-user-modal.png)
+
+**Confirmation Dialog**
+![](src/assets/images/screenshots/09-confirmation-dialog.png)
+
+**Toast Message**
+![](src/assets/images/screenshots/10-toast-message.png)
+
+**Form Error Handling**
+![](src/assets/images/screenshots/11-form-error-handling.png)
+
+**Session Storage**
+![](src/assets/images/screenshots/12-session-storage.png)
+
+**Redux Storage**
+![](src/assets/images/screenshots/13-redux-storage.png)
