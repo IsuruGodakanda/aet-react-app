@@ -12,10 +12,6 @@ const validateForm = (employeeData: any): IErrorObj => {
     errors.email = 'Email is required';
   }
 
-  if (isEmpty(employeeData.name)) {
-    errors.name = 'Name is required';
-  }
-
   return {
     errors,
     isValid: isEmpty(errors),

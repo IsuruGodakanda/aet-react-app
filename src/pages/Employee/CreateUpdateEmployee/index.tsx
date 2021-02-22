@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { addEmployee, getUserById, updateUserById } from 'Services/api';
 import { UserRoles } from 'Utils/listUtil';
+import { UserRole } from 'Services/userRoleService';
 
 import { Box, Card, Grid } from '@material-ui/core';
 
@@ -25,22 +26,19 @@ const CreateUpdateEmployee: React.FC<IProps> = (props: IProps) => {
   const userRolesOptions = UserRoles.options;
 
   const [formData, setFormData] = React.useState<IEmployeeObj>({
-    name: '',
     email: '',
-    role: 'worker',
+    role: UserRole.WORKER,
   });
-  const { name, email, role } = formData;
+  const { email, role } = formData;
 
   const [errors] = React.useState<IEmployeeObj>({
-    name: '',
     email: '',
-    role: undefined,
   });
 
   const [disabledForm, setDisabledForm] = React.useState<boolean>(true);
 
   const clearForm = () => {
-    setFormData({ ...formData, name: '', email: '', role: 'worker' });
+    setFormData({ ...formData, email: '', role: UserRole.WORKER });
   };
 
   const onSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -90,7 +88,7 @@ const CreateUpdateEmployee: React.FC<IProps> = (props: IProps) => {
       getUserById(selectedId)
         .then((res) => {
           setLoader(false);
-          setFormData({ ...formData, name: res.name, email: res.email, role: res.role });
+          setFormData({ ...formData, email: res.email, role: res.role });
         })
         .catch((err) => {
           setLoader(false);
@@ -136,19 +134,6 @@ const CreateUpdateEmployee: React.FC<IProps> = (props: IProps) => {
                 <Grid item xs={12}>
                   <h3>{selectedId ? 'UPDATE EMPLOYEE' : 'CREATE NEW EMPLOYEE'}</h3>
                   <p>{selectedId ? 'Modify the details of this employee' : 'Enter the details of new employee'}</p>
-                </Grid>
-                <Grid item xs={4}>
-                  <Text
-                    id="name"
-                    name="name"
-                    type="text"
-                    label="Full Name"
-                    value={name}
-                    required
-                    onChange={handleChange}
-                    validateField={validateForm}
-                    errorMsg={errors.name}
-                  />
                 </Grid>
                 <Grid item xs={4}>
                   <Text

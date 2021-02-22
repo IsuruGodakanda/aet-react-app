@@ -20,9 +20,8 @@ Content-Type: application/json
 x-auth-token: {{authToken}}
 
 {
-    "name": "NAME",
     "email": "EMAIL",
-    "role": "manager",
+    "role": "MANAGER",
     "password": "PASSWORD"
 }
 
@@ -48,7 +47,7 @@ x-auth-token: {{authToken}}
 {
     "name": "NAME",
     "email": "EMAIL",
-    "role": "worker | manager"
+    "role": "WORKER | MANAGER"
 }
 
 ###

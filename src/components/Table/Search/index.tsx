@@ -20,7 +20,7 @@ const Search: React.FC<IProps> = (props: IProps) => {
       id="search"
       name="search"
       type="text"
-      label="Search by name"
+      label="Search"
       value={search}
       onChange={(e) => onInputChange(e.target.value)}
       icon={['fas', 'search']}

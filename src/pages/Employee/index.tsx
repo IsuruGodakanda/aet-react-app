@@ -12,7 +12,6 @@ import CreateUpdateEmployeeForm from './CreateUpdateEmployee';
 const Employee: React.FC = () => {
   const dispatch = useDispatch();
   const employeeHeaderTitles = [
-    { key: 'name', label: 'Name', showColumn: true, sortable: true },
     { key: 'email', label: 'Email', showColumn: true, sortable: true },
     { key: 'role', label: 'Role', showColumn: true, sortable: false },
   ];

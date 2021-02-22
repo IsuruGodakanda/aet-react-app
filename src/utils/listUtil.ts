@@ -1,7 +1,7 @@
 export const UserRoles = {
   options: [
-    { name: 'Worker', value: 'worker' },
-    { name: 'Manager', value: 'manager' },
+    { name: 'Worker', value: 'WORKER' },
+    { name: 'Manager', value: 'MANAGER' },
   ],
 };
 

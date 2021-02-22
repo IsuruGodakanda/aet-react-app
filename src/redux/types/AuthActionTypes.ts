@@ -7,7 +7,6 @@ export const SET_AUTH_USER = 'SET_AUTH_USER';
 export type AuthUserType = {
   id: string;
   email: string;
-  name: string;
   role: string;
   avatar: string;
   iat: number;

@@ -4,8 +4,8 @@ import { decodeJWT } from 'Utils/commonUtil';
 
 // Set user roles
 export enum UserRole {
-  MANAGER = 'manager',
-  WORKER = 'worker',
+  MANAGER = 'MANAGER',
+  WORKER = 'WORKER',
 }
 
 // Validate user route
