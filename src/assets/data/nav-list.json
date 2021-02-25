@@ -18,5 +18,12 @@
         "subPath": "/employee/profile"
       }
     ]
+  },
+  {
+    "navId": "leave",
+    "label": "My Leaves",
+    "icon": "calendar",
+    "path": "/leave",
+    "subItems": []
   }
 ]

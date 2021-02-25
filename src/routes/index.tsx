@@ -9,6 +9,7 @@ const SignUp = lazy(() => import('Pages/Auth/SignUp'));
 const Dashboard = lazy(() => import('Pages/Dashboard'));
 const Employee = lazy(() => import('Pages/Employee'));
 const Profile = lazy(() => import('Pages/Employee/Profile'));
+const Leave = lazy(() => import('Pages/Leave'));
 const NotFound = lazy(() => import('Pages/NotFound'));
 
 const Routes: React.FC = () => {
@@ -20,6 +21,7 @@ const Routes: React.FC = () => {
         <RouteHandleHOC exact path="/dashboard" routeType="protected" component={Dashboard} />
         <RouteHandleHOC exact path="/employee" routeType="protected" component={Employee} />
         <RouteHandleHOC exact path="/employee/profile" routeType="protected" component={Profile} />
+        <RouteHandleHOC exact path="/leave" routeType="protected" component={Leave} />
 
         <Route component={NotFound} />
       </Switch>

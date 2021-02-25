@@ -1,5 +1,9 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faListAlt as farListAlt, faUser as farUser } from '@fortawesome/free-regular-svg-icons';
+import {
+  faListAlt as farListAlt,
+  faUser as farUser,
+  faCalendar as farCalendar,
+} from '@fortawesome/free-regular-svg-icons';
 import {
   faEye as fasEye,
   faFingerprint as fasFingerprint,
@@ -11,6 +15,7 @@ import {
   faUser as fasUser,
   faUserCircle as fasUserCircle,
   faUserPlus as fasUserPlus,
+  faCalendar as fasCalendar,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -24,6 +29,8 @@ library.add(
   fasSearch,
   fasUser,
   fasListAlt,
+  fasCalendar,
   farUser,
-  farListAlt
+  farListAlt,
+  farCalendar
 );
