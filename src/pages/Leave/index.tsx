@@ -12,7 +12,9 @@ import {
   EventSettingsModel,
 } from '@syncfusion/ej2-react-schedule';
 import { DropDownList } from '@syncfusion/ej2-dropdowns';
-import { createElement, L10n, removeChildInstance } from '@syncfusion/ej2-base';
+import { createElement, L10n } from '@syncfusion/ej2-base';
+import { getLeaveRequests } from 'Services/api';
+import { toast } from 'react-toastify';
 
 import { Box, Grid } from '@material-ui/core';
 
@@ -31,30 +33,63 @@ L10n.load({
 });
 
 const Leave: React.FC = () => {
-  const leaveData: EventSettingsModel = {
-    dataSource: [
-      {
-        Id: 1,
-        Subject: 'Sick Leave',
-        StartTime: new Date(2021, 1, 11, 9, 0),
-        EndTime: new Date(2021, 1, 12, 18, 0),
-        IsAllDay: false,
-        Description: "That's a personal matter",
-      },
-    ],
+  const [leaveData, setLeaveData] = React.useState<EventSettingsModel>({
+    dataSource: [],
     fields: {
-      id: 'Id',
-      subject: { name: 'Subject', validation: { required: true } },
+      id: 'id',
+      subject: { name: 'subject', validation: { required: true } },
       description: {
-        name: 'Description',
+        name: 'description',
         validation: {
           required: true,
         },
       },
-      startTime: { name: 'StartTime', validation: { required: true } },
-      endTime: { name: 'EndTime', validation: { required: true } },
+      startTime: { name: 'startTime', validation: { required: true } },
+      endTime: { name: 'endTime', validation: { required: true } },
+      isAllDay: { name: 'allDay' },
     },
+  });
+
+  const leaveTest = [
+    {
+      id: 1,
+      subject: 'Sick Leave',
+      startTime: new Date(2021, 1, 11, 9, 0),
+      endTime: new Date(2021, 1, 12, 18, 0),
+      allDay: false,
+      description: "That's a personal matter",
+      leaveType: 'SICK',
+    },
+  ];
+
+  const loadData = (): void => {
+    getLeaveRequests()
+      .then((res) => {
+        setLeaveData({
+          dataSource: res,
+          fields: {
+            id: 'id',
+            subject: { name: 'subject', validation: { required: true } },
+            description: {
+              name: 'description',
+              validation: {
+                required: true,
+              },
+            },
+            startTime: { name: 'startTime', validation: { required: true } },
+            endTime: { name: 'endTime', validation: { required: true } },
+            isAllDay: { name: 'allDay' },
+          },
+        });
+      })
+      .catch((err) => {
+        toast.error('Fail to load table data!');
+      });
   };
+
+  React.useEffect(() => {
+    loadData();
+  }, []);
 
   const onPopupOpen = (args) => {
     if (args.type === 'Editor') {

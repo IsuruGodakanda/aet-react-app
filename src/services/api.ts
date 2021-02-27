@@ -4,6 +4,7 @@ import baseAPIService from './baseAPI';
 
 const authURL = 'auth';
 const usersURL = 'users';
+const leaveURL = 'leave';
 
 export const login = async (payload: ILoginDTO): Promise<any> => {
   return baseAPIService('POST', authURL, payload);
@@ -36,4 +37,8 @@ export const getUserById = async (id: string | undefined): Promise<any> => {
 export const updateUserById = async (id: string | undefined, payload: IEmployeeObj): Promise<any> => {
   const dataUrl = `${usersURL}/${id}`;
   return baseAPIService('PUT', dataUrl, payload);
+};
+
+export const getLeaveRequests = async (): Promise<any> => {
+  return baseAPIService('GET', leaveURL);
 };
