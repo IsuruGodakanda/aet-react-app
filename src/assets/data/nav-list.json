@@ -1,0 +1,22 @@
+[
+  {
+    "navId": "dashboard",
+    "label": "Dashboard",
+    "icon": "list-alt",
+    "path": "/dashboard",
+    "subItems": []
+  },
+  {
+    "navId": "employee",
+    "label": "Employee",
+    "icon": "user",
+    "path": "",
+    "subItems": [
+      {
+        "subId": "profile",
+        "subLabel": "Profile",
+        "subPath": "/employee/profile"
+      }
+    ]
+  }
+]

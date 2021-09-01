@@ -1,0 +1,30 @@
+/* Copy this these configurations and paste in VSCode global settings.json file.
+Add below extensions */
+
+{
+  "browser-preview.startUrl": "http://localhost:3000/",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "eslint.validate": ["html", "javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "importSorter.generalConfiguration.sortOnBeforeSave": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.printWidth": 120,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "none",
+  "workbench.iconTheme": "vscode-icons",
+  "tailwindCSS.emmetCompletions": true,
+  "workbench.colorTheme": "Night Owl",
+  "workbench.colorCustomizations": {
+    "[Night Owl]": {
+      "sideBar.background": "#091b2a",
+      "sideBarSectionHeader.background": "#0e263c",
+      "editorGroupHeader.tabsBackground": "#091b2a",
+      "statusBar.background": "#6449a3",
+      "statusBar.foreground": "#ffffff"
+    }
+  }
+}

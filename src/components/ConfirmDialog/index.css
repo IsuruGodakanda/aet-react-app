@@ -1,0 +1,25 @@
+@layer base {
+  button.MuiButton-text {
+    padding: 8px 20px;
+  }
+
+  button.MuiButton-root.primary {
+    @apply font-semibold text-primaryBlue bg-greyLight;
+  }
+
+  button.MuiButton-root.primary {
+    @apply font-semibold text-primaryBlue bg-greyLight;
+  }
+
+  button.MuiButton-root.primary:hover {
+    @apply bg-greyDark;
+  }
+
+  button.MuiButton-root.secondary {
+    @apply bg-greyLight text-greyDark;
+  }
+
+  button.MuiButton-root.secondary:hover {
+    @apply bg-greyLight text-greyDark;
+  }
+}

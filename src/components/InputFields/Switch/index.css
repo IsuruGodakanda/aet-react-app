@@ -1,0 +1,14 @@
+.toggle__dot {
+  top: 0.125rem;
+  left: 0.125rem;
+  transition: all 0.2s ease-in-out;
+}
+
+input:checked ~ .toggle__line .toggle__dot {
+  transform: translateX(65%);
+}
+
+input:checked ~ .toggle__line {
+  background-color: #3175f6;
+  border-color: #3175f6;
+}

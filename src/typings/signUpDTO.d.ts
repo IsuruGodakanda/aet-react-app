@@ -1,0 +1,3 @@
+interface ISignUpDTO {
+  email: string;
+}

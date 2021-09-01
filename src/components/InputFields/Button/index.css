@@ -1,0 +1,9 @@
+@layer base {
+  button {
+    @apply rounded;
+  }
+
+  button label {
+    @apply font-primaryFont not-italic font-medium text-xl leading-6 tracking-normal capitalize text-white;
+  }
+}
